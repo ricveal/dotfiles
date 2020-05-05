@@ -1,0 +1,55 @@
+# Example:
+# --- COMMIT START ---
+# |<----   Preferably using up to 50 chars   --->|<------------------->|
+feat!: allow provided config object to extend other configs
+
+# --- COMMIT BODY ---
+# |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+Co-authored-by: Name <name@example.com>
+
+Why:
+
+reasons...
+
+How:
+
+explanations...
+
+# --- COMMIT FOOTER ---
+BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.
+Refs #133
+# --- COMMIT END ---
+
+# ------------------------------------------------------------------------
+## Remember to follow: https://www.conventionalcommits.org/en/v1.0.0/
+#
+# Type can be 
+#    feat     (new feature)
+#    fix      (bug fix)
+#    refactor (refactoring code)
+#    style    (formatting, missing semi colons, etc; no code change)
+#    doc      (changes to documentation)
+#    test     (adding or refactoring tests; no production code change)
+#    chore    (version bump/new release; no production code change)
+#    ci       (changes to ci/cd systems)
+#    revert   (Reverts to previous commit)
+#    hack     (Temporary fix to make things move forward; please avoid it)
+#    WIP      (Work In Progress; for intermediate commits to keep patches reasonably sized)
+
+# BREAKING CHANGE: a commit that has a footer BREAKING CHANGE:, or appends a ! after the type/scope.
+# |<----   Preferably using up to 50 chars   --->|<------------------->|
+# type(scope?): subject  #scope is optional
+
+# |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+# List all co-authors, so version control systems can connect teams.
+# Co-authored-by: Name <name@example.com>
+
+# Why is this change happening, e.g. goals, use cases, stories, etc.?
+# Why:
+
+# How is this change happening, e.g. implementations, algorithms, etc.?
+# How:
+
+# [optional footer(s)]
+# Github issue #23
+# ------------------------------------------------------------------------
