@@ -11,7 +11,7 @@
 # CLOUDFLARE_AUTH_EMAIL
 # CLOUDFLARE_AUTH_KEY
 
-source ./cloudflare.config.sh
+source ~/scripts/cloudflare.config.sh
 
 # Proxy - uncomment and provide details if using a proxy
 #export https_proxy=http://<proxyuser>:<proxypassword>@<proxyip>:<proxyport>

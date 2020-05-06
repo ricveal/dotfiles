@@ -231,7 +231,7 @@ alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Private / secret stuff - WORK_PROXY env variable
-source ./work_variables.zsh
+source ~/work_variables.zsh
 
 eval $(thefuck --alias)
 

@@ -1,6 +1,6 @@
 #! /bin/sh
 
-source ../work_variables.zsh
+source ~/work_variables.zsh
 
 proxy=$WORK_PROXY
 
