@@ -5,6 +5,7 @@ feat!: allow provided config object to extend other configs
 
 # --- COMMIT BODY ---
 # |<----   Try To Limit Each Line to a Maximum Of 72 Characters   ---->|
+
 Co-authored-by: Name <name@example.com>
 
 Why:
@@ -16,6 +17,7 @@ How:
 explanations...
 
 # --- COMMIT FOOTER ---
+
 BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.
 Refs #133
 # --- COMMIT END ---
