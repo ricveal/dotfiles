@@ -151,7 +151,7 @@ export LANG=es_ES.UTF-8
 
 # GENERAL
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
-alias pip-update="pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+alias pip-update="pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
 alias hs='history | grep'
 alias www='python -m http.server'
 alias speed='speedtest-cli --server 2406 --simple'
