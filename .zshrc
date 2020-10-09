@@ -161,7 +161,7 @@ alias proxyoff='sh ~/scripts/proxy_off.sh'
 alias getnpmrc='readlink ~/.npmrc | cut -d '/' -f 5'
 
 # MAC
-alias brewupdate="brew update && brew upgrade && brew cask upgrade && brew cleanup -s && brew doctor && brew missing && pip-update"
+alias brewupdate="brew update && brew upgrade && brew upgrade --cask && brew cleanup -s && brew doctor && brew missing && pip-update"
 alias hidedesk='defaults write com.apple.finder CreateDesktop -bool false; killall Finder;'
 alias showdesk='defaults write com.apple.finder CreateDesktop -bool true; killall Finder;'
 
@@ -222,7 +222,6 @@ npm-latest() { npm info "$1" | grep latest; }
 killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}
 
 # Other alias
-alias corona="curl https://corona-stats.online/"
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
 alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
