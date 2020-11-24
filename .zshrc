@@ -149,6 +149,14 @@ export LANG=es_ES.UTF-8
 #
 # Example aliases
 
+# Android Development
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+
 # GENERAL
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias pip-update="pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
