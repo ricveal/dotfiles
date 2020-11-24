@@ -63,6 +63,10 @@ ln -s "${HOME}/dotfiles/.git_commit_template" "${HOME}/.git_commit_template"
 ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 ln -s "${HOME}/dotfiles/work_variables.zsh" "${HOME}/work_variables.zsh"
 ln -s "${HOME}/dotfiles/scripts" "${HOME}/scripts"
+ln -s "${HOME}/dotfiles/karabiner.edn" "${HOME}/.config/karabiner.edn"
+
+echo "configuring karabiner-elements"
+brew services start yqrashawn/goku/goku
 
 echo "making system modifications:"
 

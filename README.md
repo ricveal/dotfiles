@@ -10,6 +10,13 @@ My workspace configuration.
 
 Suggestions/improvements [welcome](https://github.com/ricveal/dotfiles/issues)!
 
+## Karabiner
+
+Karabiner configurations which I take as first approach:
+
+- [Nikita Voloboev](https://github.com/nikitavoloboev/dotfiles)
+- [John Lindquist](https://github.com/johnlindquist/dotfiles)
+
 ## Author
 
 | [![twitter/ricveal](https://gravatar.com/avatar/d844917094d11b96a9fab47e5b481ab3?s=70)](http://twitter.com/ricveal 'Follow @ricveal on Twitter') |
@@ -21,3 +28,4 @@ Suggestions/improvements [welcome](https://github.com/ricveal/dotfiles/issues)!
 - [Mathias Bynens](https://mathiasbynens.be/)
 - [Kent C. Dodds](https://kentcdodds.com)
 - [Sindre Sorhus](https://sindresorhus.com/)
+- [Nikita Voloboev](https://nikitavoloboev.xyz/)

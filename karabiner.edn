@@ -1,0 +1,218 @@
+{:default true
+
+ :alone 500
+ :delay 200
+ :held 500
+ :sim 200
+ :simlayer-threshold 222
+ :modifiers {;
+             :super-hyper [:command :shift :control :option :fn]
+             :hyper [:command :shift :control :option]
+             :cos [:command :shift :option]
+             :cst [:command :shift :control]
+             :co [:command :option]
+             :cs [:command :shift]
+             :ct [:command :control]
+             :to [:control :option]
+             :ts [:control :shift]
+             :os [:option :shift]
+             ;
+             }
+ :froms {;alias
+         :delete {:key :delete_or_backspace}
+         :return {:key :return_or_enter}
+         :tilde {:key :grave_accent_and_tilde}
+         :app {:key :application}
+         ;
+         ;colemak froms (for easier mnemonics)
+         :-q {:key :q}
+         :-w {:key :w}
+         :-f {:key :f}
+         :-p {:key :p}
+         :-g {:key :g}
+         :-j {:key :j}
+         :-l {:key :l}
+         :-u {:key :u}
+         :-y {:key :y}
+
+         :-a {:key :a}
+         :-r {:key :r}
+         :-s {:key :s}
+         :-t {:key :t}
+         :-d {:key :d}
+         :-h {:key :h}
+         :-n {:key :n}
+         :-e {:key :e}
+         :-i {:key :i}
+         :-o {:key :o}
+
+         :-z {:key :z}
+         :-x {:key :x}
+         :-c {:key :c}
+         :-v {:key :v}
+         :-b {:key :b}
+         :-k {:key :k}
+         :-m {:key :m}
+         }
+
+ :tos {;
+       :delete {:key :delete_or_backspace}
+       :return {:key :return_or_enter}
+       :tilde {:key :grave_accent_and_tilde}
+
+       ;shortcuts
+       :command_palette {:key :p :modi :cs}
+
+       :find_in_project {:key :f :modi :cs} ;!CSf
+       :focus_git {:key :g :modi :ts} ;!TSg
+       :focus_editor {:key :e :modi :os}
+       :focus_explorer {:key :e :modi :cs} ;:!CSOe
+       :focus_terminal {:key :close_bracket :modi :ts}
+       :new_terminal {:key :open_bracket :modi :ts}; !TS`
+
+       :toggle_sidebar {:key :b :modi :command} ;!Cb
+       :toggle_panel {:key :j :modi :command} ;!Cj
+
+       :go_to_file {:key :p :modi :command}
+
+       :emoji_picker {:key :spacebar :modi :ct} ;!CTspacebar
+
+       ;chrome
+       :open_dev_tools {:key :i :modi :co} ;:!COl
+       :chrome_full_screen {:key :f :modi :ct}
+       :focus_omnibar {:key :l :modi :command}
+       }
+ 
+ :templates {;
+             :paste "osascript -e '
+                        set the clipboard to \"%s\"
+                        tell application \"System Events\"
+                                keystroke \"v\" using command down
+                        end tell
+                '"
+             }
+
+ :applications {;
+                :chrome ["com.google.Chrome"]
+                :code ["com.microsoft.VSCode"]
+                ;
+                }
+; Layers Are Typically "Thumb Keys" or "Pinky Keys"
+ :layers {;
+          :caps_lock-mode {:key :caps_lock :alone {:key :escape}}
+          :escape-mode {:key :escape :alone {:key :escape}}
+          ;
+          }
+ :simlayers {;
+
+             :media-mode {:key :period}
+             :emoji-mode {:key :z}
+ ;
+             }
+
+ :main [;
+
+        {:des "media"
+         :rules [:media-mode
+                 [:-o :rewind];
+                 [:-p :play_or_pause];
+                 [{:key :open_bracket} :fastforward];
+                 ;
+                 ]}
+
+        {:des "chrome"
+         :rules [:chrome
+                 [:app :focus_omnibar]
+
+                 [:condi :chrome :escape-mode]
+                 [:-d :open_dev_tools]
+                 [:-f :chrome_full_screen]
+                 ;
+                 ;
+                 ]}
+
+        {:des "code"
+         :rules [:code
+                 [:left_command :left_command nil {:alone :focus_editor}]
+                 [:left_option :left_option nil {:alone :focus_terminal}]
+                 [:right_option :right_option nil {:alone :command_palette}]
+                 [:right_control :right_control nil {:alone :go_to_file}]
+                 ;view
+                 ;note - I try to keep these on my left hand so I can keep my right on the mouse
+                 [:condi :code :caps_lock-mode]
+                 [:-g :focus_git] ;; SCM [x]
+                 [:-e :focus_explorer] ;; Explorer [x]
+                 [:-t :focus_terminal] ;; [x]
+                 [:-n :new_terminal] ;; [x]
+                 [:-f :find_in_project] ;; [x]
+                 [:-z [:!Ck :z]] ;zen mode [x]
+                 [:-b :toggle_sidebar] ;toggle panel [x]
+                 [:-p :toggle_panel] ;toggle panel [x]
+
+
+                 ;
+                 ]}
+
+;
+        {:des "emoji"
+         :rules [:emoji-mode
+                 [:-a [:paste ""]] ;                
+                 [:-b [:paste "😊"]] ;blush
+                 [:-c [:paste "👏"]] ;clap
+                 [:-d [:paste "🧐"]] ;dignified
+                 [:-e :emoji_picker] 
+                 [:-f [:paste "🤦‍♂️"]] ;facepalm️
+                 [:-g [:paste "😬"]] ;grimace
+                 [:-h [:paste "😍"]] ;heart-eyes
+                 [:-i [:paste "👀"]] ;I
+                 [:-j [:paste "😂"]] ;joking
+                 [:-k [:paste ""]] ;
+                 [:-l [:paste "❤"]] ;love
+                 [:-m [:paste "🤯"]] ;mind blown 
+                 [:-n :emoji_picker] ;
+                 [:-o [:paste "💩"]] ;pOop
+                 [:-p [:paste "🎉"]] ;party
+                 [:-q [:paste "🤫"]] ;quiet
+                 [:-r [:paste "🏎"]] ;racecar
+                 [:-s [:paste "😢"]] ;sad
+                 [:-t [:paste "🤔"]] ;thinking
+                 [:-u [:paste "🤷‍♂️"]] ;shrUg
+                 [:-v [:paste "😎"]] ;very cool
+                 [:-w [:paste "😉"]] ;wink:
+                 [:-x [:paste "😵"]] ;x-eyes
+                 [:-y [:paste "😅"]] ;sweatY
+                 [:left_command [:paste "👍"]]
+                 [:left_option [:paste "👎"]]
+                 ;
+                 ]}
+                 
+        {:des "caps_lock"
+         :rules [:caps_lock-mode
+                 [:##caps_lock :##escape]
+                 ; I don't use a caps_lock key on my keyboard
+                 ;
+                 ]}
+        ;
+        ]
+}
+
+
+;; rule [:period ["media-mode" 1] nil {:afterup ["media-mode" 0] :alone :period}]
+;;       |_____| |_______________| |_| |_________________________________________|
+;;        <from>    <to>      <conditions>         <other options>
+
+    ;; !  | means mandatory
+    ;; #  | means optional
+    ;; C  | left_command
+    ;; T  | left_control
+    ;; O  | left_option
+    ;; S  | left_shift
+    ;; F  | fn
+    ;; Q  | right_command
+    ;; W  | right_control
+    ;; E  | right_option
+    ;; R  | right_shift
+    ;; 
+    ;; !! | mandatory command + control + optional + shift (hyper)
+    ;; ## | optional any
+;; 
