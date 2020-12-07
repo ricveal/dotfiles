@@ -31,6 +31,7 @@ brew "ical-buddy"
 brew "shared-mime-info"
 brew "imagemagick"
 brew "jq"
+brew "k6"
 brew "mas"
 brew "openjdk"
 brew "maven"
@@ -38,7 +39,6 @@ brew "minikube"
 brew "mkcert"
 brew "mosquitto"
 brew "nmap"
-brew "ntfs-3g"
 brew "nvm"
 brew "openconnect"
 brew "openvpn"
@@ -70,7 +70,6 @@ cask "anki"
 cask "appcleaner"
 cask "arduino"
 cask "avibrazil-rdm"
-cask "awareness"
 cask "balenaetcher"
 cask "balsamiq-mockups"
 cask "beardedspice"
@@ -137,7 +136,7 @@ cask "vlc"
 cask "vox"
 cask "webpquicklook"
 cask "xquartz"
-cask "zoomus"
+cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "GarageBand", id: 682658836
 mas "Jayson", id: 1189824719
@@ -146,7 +145,6 @@ mas "Next Meeting", id: 1017470484
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Pocket", id: 568494494
-mas "Service Station", id: 1503136033
 mas "The Unarchiver", id: 425424353
 mas "Todoist", id: 585829637
 mas "Trello", id: 1278508951
