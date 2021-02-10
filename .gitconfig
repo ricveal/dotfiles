@@ -1,12 +1,12 @@
 [includeIf "gitdir:~/desarrollo/"]
-    path = ~/.gitconfig_work
+  path = ~/.gitconfig_work
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
 [diff]
-    tool = default-difftool
+  tool = default-difftool
 [difftool "default-difftool"]
-    cmd = code --wait --diff $LOCAL $REMOTE
+  cmd = code --wait --diff $LOCAL $REMOTE
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path =
@@ -16,7 +16,7 @@
 [commit]
 	template = ~/.git_commit_template
 [alias]
-    news = log -p HEAD@{1}..HEAD@{0}
+  news = log -p HEAD@{1}..HEAD@{0}
 	ahead-of-master = log --oneline origin/master..HEAD
 	roots = log --all --oneline --decorate --max-parents=0
 	unpushed = log @{u}..
@@ -26,6 +26,8 @@
 	br = branch
 	trash = checkout -f
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	# git archive --format zip --output <output_path> <branch>
+	export = archive --format zip --output
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -57,3 +59,5 @@
 	sslVerify = true
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main
