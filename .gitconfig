@@ -21,6 +21,7 @@
 	roots = log --all --oneline --decorate --max-parents=0
 	unpushed = log @{u}..
 	wip = rebase -i @{u}
+	fixup = commit --amend --no-edit --allow-empty "$@"
 	co = checkout
 	st = status
 	br = branch
