@@ -130,6 +130,7 @@ cask "steam"
 cask "sublime-text"
 cask "suspicious-package"
 cask "tableplus"
+cask "telegram"
 cask "toggl"
 cask "transmission"
 cask "tunnelblick"
@@ -144,14 +145,12 @@ mas "Amphetamine", id: 937984704
 mas "GarageBand", id: 682658836
 mas "Hand Mirror", id: 1502839586
 mas "iMovie", id: 408981434
-mas "Jayson", id: 1189824719
 mas "Keynote", id: 409183694
 mas "Next Meeting", id: 1017470484
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Pocket", id: 568494494
 mas "The Unarchiver", id: 425424353
-mas "Todoist", id: 585829637
 mas "Trello", id: 1278508951
 mas "Twitter", id: 1482454543
 mas "WireGuard", id: 1451685025
