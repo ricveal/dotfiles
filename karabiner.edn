@@ -8,6 +8,7 @@
  :modifiers {;
              :super-hyper [:command :shift :control :option :fn]
              :hyper [:command :shift :control :option]
+             :c [:command]
              :cos [:command :shift :option]
              :cst [:command :shift :control]
              :co [:command :option]
@@ -80,10 +81,13 @@
        ;chrome
        :open_dev_tools {:key :i :modi :co} ;:!COl
        :chrome_full_screen {:key :f :modi :ct}
-       :focus_omnibar {:key :l :modi :command}
+       :focus_omnibar {:key :l :modi :c}
        }
  
  :templates {;
+             :alfred "osascript -e 'tell application \"Alfred 4\" to run trigger \"%s\" in workflow \"%s\" with argument \"%s\"'"
+             :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
+             :open "open \"%s\""
              :paste "osascript -e '
                         set the clipboard to \"%s\"
                         tell application \"System Events\"
@@ -104,13 +108,22 @@
           ;
           }
  :simlayers {;
-
              :media-mode {:key :period}
              :emoji-mode {:key :z}
- ;
+             :open-mode {:key :o}
              }
-
+ :devices {
+           :macbook [{:product_id 632 :vendor_id 1452}]
+           :ms-keyboard [{:product_id 1977 :vendor_id 1118}]
+           ;
+           }
  :main [;
+
+        {:des "MS Keyboard specific mappings"
+        :rules [:ms-keyboard
+                [{:key :##non_us_backslash} {:key :##grave_accent_and_tilde}]
+                [{:key :##grave_accent_and_tilde} {:key :##non_us_backslash}]
+        ]}
 
         {:des "media"
          :rules [:media-mode
@@ -123,8 +136,8 @@
         {:des "chrome"
          :rules [:chrome
                  [:app :focus_omnibar]
-
-                 [:condi :chrome :escape-mode]
+                 [:condi :chrome :caps_lock-mode]
+                 [:-a :focus_omnibar]
                  [:-d :open_dev_tools]
                  [:-f :chrome_full_screen]
                  ;
@@ -192,6 +205,12 @@
                  ; I don't use a caps_lock key on my keyboard
                  ;
                  ]}
+
+        {:des "open"
+         :rules [:open-mode
+                 ;open urls
+                 [:-l [:open "http://localhost:3000"]]
+                ]}
         ;
         ]
 }
