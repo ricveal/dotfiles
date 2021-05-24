@@ -99,10 +99,10 @@ cask "font-meslo-nerd-font-mono"
 cask "google-chrome"
 cask "google-chrome-canary"
 cask "handbrake"
+cask "hiddenbar"
 cask "imageoptim"
 cask "insomnia"
 cask "iterm2"
-cask "itsycal"
 cask "java"
 cask "karabiner-elements"
 cask "keka"
@@ -152,6 +152,7 @@ mas "Next Meeting", id: 1017470484
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Pocket", id: 568494494
+mas "Session", id: 1521432881
 mas "The Unarchiver", id: 425424353
 mas "Trello", id: 1278508951
 mas "Twitter", id: 1482454543
