@@ -3,6 +3,7 @@ tap "candid82/brew"
 tap "github/gh"
 tap "homebrew/bundle"
 tap "homebrew/cask"
+tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
@@ -47,7 +48,6 @@ brew "openconnect"
 brew "openvpn"
 brew "pipenv"
 brew "poetry"
-brew "pstoedit"
 brew "psutils"
 brew "speedtest-cli"
 brew "subversion"
@@ -81,6 +81,7 @@ cask "blender"
 cask "brave-browser"
 cask "cakebrew"
 cask "calibre"
+cask "canon-eos-utility"
 cask "controlplane"
 cask "dash"
 cask "discord"
@@ -109,6 +110,7 @@ cask "keka"
 cask "macdropany"
 cask "microsoft-teams"
 cask "mindnode-pro"
+cask "mkvtoolnix"
 cask "moonlight"
 cask "notion"
 cask "obs"
@@ -152,7 +154,6 @@ mas "Next Meeting", id: 1017470484
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Pocket", id: 568494494
-mas "Session", id: 1521432881
 mas "The Unarchiver", id: 425424353
 mas "Trello", id: 1278508951
 mas "Twitter", id: 1482454543
