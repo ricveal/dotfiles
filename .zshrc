@@ -235,6 +235,18 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 alias findprocess="ps -ax | grep -i"
 
+# Karabiner
+alias karabinerLoad='launchctl load /Library/LaunchAgents/org.pqrs.karabiner.karabiner_console_user_server.plist; \
+sudo launchctl load /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_grabber.plist; \
+sudo launchctl load /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_observer.plist;'
+alias karabinerUnload='launchctl unload /Library/LaunchAgents/org.pqrs.karabiner.karabiner_console_user_server.plist; \
+sudo launchctl unload /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_grabber.plist; \
+sudo launchctl unload /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_observer.plist; \
+sudo killall karabiner_grabber; \
+sudo killall karabiner_console_user_server; \
+sudo killall Karabiner-Menu; \
+sudo killall Karabiner-Elements'
+
 # Other files
 source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
