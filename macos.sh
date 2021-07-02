@@ -64,9 +64,15 @@ ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 ln -s "${HOME}/dotfiles/work_variables.zsh" "${HOME}/work_variables.zsh"
 ln -s "${HOME}/dotfiles/scripts" "${HOME}/scripts"
 ln -s "${HOME}/dotfiles/karabiner.edn" "${HOME}/.config/karabiner.edn"
+ln -s "${HOME}/dotfiles/nvim" "${HOME}/.config/nvim"
 
 echo "configuring karabiner-elements"
 brew services start yqrashawn/goku/goku
+
+echo "installing nvim plugin manager"
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+nvim +PlugInstall
 
 echo "making system modifications:"
 
