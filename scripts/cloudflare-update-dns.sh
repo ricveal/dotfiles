@@ -9,7 +9,7 @@
 # CLOUDFLARE_ZONE
 # CLOUDFLARE_DNS_RECORD
 # CLOUDFLARE_AUTH_EMAIL
-# CLOUDFLARE_AUTH_KEY
+# CLOUDFLARE_AUTH_KEY = $(security find-generic-password -w -a ${USER} -D "environment variable" -s "CLOUDFLARE_AUTH_TOKEN")
 
 source ~/scripts/cloudflare.config.sh
 
