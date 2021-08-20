@@ -29,3 +29,5 @@ Karabiner configurations which I take as first approach:
 - [Kent C. Dodds](https://kentcdodds.com)
 - [Sindre Sorhus](https://sindresorhus.com/)
 - [Nikita Voloboev](https://nikitavoloboev.xyz/)
+- [Takuya Matsuyama](https://github.com/craftzdog/dotfiles-public)
+- [thoughtbot](https://github.com/thoughtbot/dotfiles)
