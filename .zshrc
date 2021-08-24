@@ -159,7 +159,7 @@ export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Hom
 
 # Modern Unix Commands
 # https://github.com/ibraheemdev/modern-unix
-alias cat=bat
+alias cat=/usr/local/bin/bat
 
 # GENERAL
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
