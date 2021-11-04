@@ -38,8 +38,8 @@ echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
 
 echo "installing a few global npm packages"
-yarn global add npmrc gatsby serve diff-so-fancy fkill-cli semantic-release-cli  \
-npm-check-updates yo @vue/cli create-react-app @angular/cli
+yarn global add npmrc gatsby serve diff-so-fancy fkill-cli semantic-release-cli \
+npm-check-updates yo @vue/cli create-react-app @angular/cli npkill
 
 echo "Please, install last Node.js LTS version"
 echo $(nvm ls-remote | grep -i 'Latest LTS' | tail -1)
