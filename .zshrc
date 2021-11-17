@@ -171,6 +171,7 @@ alias ipe='curl ipinfo.io/ip'
 alias proxyon='sh ~/scripts/proxy_on.sh'
 alias proxyoff='sh ~/scripts/proxy_off.sh'
 alias getnpmrc='readlink ~/.npmrc | cut -d '/' -f 5'
+function qr { curl qrcode.show/$@; }
 
 # MAC
 alias brewupdate="brew update && brew upgrade && brew upgrade --cask && brew cleanup -s && brew doctor && brew missing && pip-update"
