@@ -74,6 +74,12 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 nvim +PlugInstall
 
+echo "Adding gh extensions"
+gh extension install vilmibm/gh-user-status
+gh extension install mislav/gh-branch
+gh extension install davidraviv/gh-clean-branches
+gh extension install kawarimidoll/gh-graph
+
 echo "making system modifications:"
 
 # Make Chrome Two finger swipe for back and forward
