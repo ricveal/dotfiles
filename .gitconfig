@@ -21,6 +21,8 @@
 	roots = log --all --oneline --decorate --max-parents=0
 	unpushed = log @{u}..
 	wip = rebase -i @{u}
+	changelog = log origin..HEAD --format='* %s%n%w(,4,4)%+b'
+	amend = commit --amend --no-edit
 	fixup = commit --amend --no-edit --allow-empty "$@"
 	co = checkout
 	st = status
@@ -30,6 +32,9 @@
 	# git archive --format zip --output <output_path> <branch>
 	export = archive --format zip --output
 	enforce = push --force-with-lease
+	refresh = pull --rebase --autostash origin HEAD
+	cleanup-merged = "!f(){ git fetch && git branch --merged | grep -v '* ' | xargs git branch --delete; };f"
+	# Useful aliases: https://www.lazy-electron.com/2021/07/29/git-aliases.html
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
