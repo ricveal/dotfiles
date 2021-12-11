@@ -65,6 +65,11 @@ set formatoptions+=r
 
 "}}}
 
+" Disable unused providers
+let g:loaded_python_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
+
 " Highlights "{{{
 " ---------------------------------------------------------------------
 set cursorline
@@ -96,6 +101,8 @@ au BufNewFile,BufRead *.es6 setf javascript
 au BufNewFile,BufRead *.tsx setf typescriptreact
 " Markdown
 au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.mdx set filetype=markdown
+" Flow
 
 set suffixesadd=.js,.jsx,.json,.css,.sass,.py,.md
 

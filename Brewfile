@@ -56,6 +56,7 @@ brew "openconnect"
 brew "openvpn", restart_service: true
 brew "poetry"
 brew "psutils"
+brew "ripgrep"
 brew "rust"
 brew "speedtest-cli"
 brew "subversion"
