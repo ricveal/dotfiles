@@ -31,7 +31,7 @@ function gi() { curl -fL https://www.gitignore.io/api/${(j:,:)@} }
 export PATH="$HOME/bin:/usr/local/sbin:$PATH"
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/rvalonso/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 export EDITOR="code"
 
@@ -119,7 +119,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git node osx python extract fast-syntax-highlighting zsh-autosuggestions zsh-completions git-extra-commands
+  git node macos python extract fast-syntax-highlighting zsh-autosuggestions zsh-completions git-extra-commands zsh-history-substring-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -128,8 +128,11 @@ source $ZSH/oh-my-zsh.sh
 
 autoload -U compinit && compinit
 
+## NVM configuration
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && . "/opt/homebrew/opt/nvm/nvm.sh"
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && . "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -253,7 +256,6 @@ sudo killall Karabiner-Menu; \
 sudo killall Karabiner-Elements'
 
 # Other files
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Private / secret stuff - WORK_PROXY env variable
 source ~/work_variables.zsh

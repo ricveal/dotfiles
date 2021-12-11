@@ -26,45 +26,83 @@ mkdir -p "${HOME}/code"
 
 echo "installing homebrew"
 # install homebrew https://brew.sh
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-echo "brew installing stuff"
-brew bundle
-
-echo "installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-echo "node --version: $(node --version)"
-echo "npm --version: $(npm --version)"
-
-echo "installing a few global npm packages"
-yarn global add npmrc gatsby serve diff-so-fancy fkill-cli semantic-release-cli \
-npm-check-updates yo @vue/cli create-react-app @angular/cli npkill
-
-echo "Please, install last Node.js LTS version"
-echo $(nvm ls-remote | grep -i 'Latest LTS' | tail -1)
-echo "Please, setup .npmrc's"
-
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/ricveal/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
 echo "Generating an RSA token for GitHub"
 mkdir -p ~/.ssh
 touch ~/.ssh/config
 ssh-keygen -t rsa -b 4096
 echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_rsa" | tee ~/.ssh/config
 eval "$(ssh-agent -s)"
-echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub"
+echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub. Then press <ENTER>"
+read wait
 
 echo "cloning dotfiles"
 git clone git@github.com:ricveal/dotfiles.git "${HOME}/dotfiles"
+
+if [[ `uname -m` == 'arm64' ]]; then
+  echo "installing Rosetta"
+  softwareupdate --install-rosetta
+fi
+
+echo "you must login on App Store before continue installation"
+open -a "App Store"
+echo "press <ENTER> when you have logged in, please."
+read wait
+
+echo "brew installing stuff"
+brew bundle --file ${HOME}/dotfiles/Brewfile
+
+if [[ `uname -m` == 'x86_64' ]]; then
+  echo "installing VirtualBox only on supported machines (x86)"
+  brew install --cask virtualbox
+fi
+
+echo "installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "making configuration symbolic references to dotfiles"
+rm -rf "${HOME}/.zshrc"
 ln -s "${HOME}/dotfiles/.zshrc" "${HOME}/.zshrc"
-ln -s "${HOME}/dotfiles/Brewfile" "${HOME}/Brewfile"
 ln -s "${HOME}/dotfiles/.gitconfig" "${HOME}/.gitconfig"
 ln -s "${HOME}/dotfiles/.gitconfig_work" "${HOME}/.gitconfig_work"
 ln -s "${HOME}/dotfiles/.git_commit_template" "${HOME}/.git_commit_template"
 ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
-ln -s "${HOME}/dotfiles/work_variables.zsh" "${HOME}/work_variables.zsh"
-ln -s "${HOME}/dotfiles/scripts" "${HOME}/scripts"
+ln -sF "${HOME}/dotfiles/scripts" "${HOME}/scripts"
+mkdir "${HOME}/.config"
 ln -s "${HOME}/dotfiles/karabiner.edn" "${HOME}/.config/karabiner.edn"
 ln -s "${HOME}/dotfiles/nvim" "${HOME}/.config/nvim"
+touch work_variables.zsh
+
+echo "installing oh-my-zsh plugins"
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
+  ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git \
+  ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-completions.git \
+  ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+git clone https://github.com/unixorn/git-extra-commands.git \
+  ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/git-extra-commands
+git clone https://github.com/zsh-users/zsh-history-substring-search \
+  ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
+  ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/themes/spaceship-prompt --depth=1
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+
+echo "installing last Node.js LTS version"
+nvm install $(nvm ls-remote | grep -i 'Latest LTS' | tail -1 | sed -rn "s/.*v([[:digit:]]+).*/\1/p")
+
+echo "node --version: $(node --version)"
+echo "npm --version: $(npm --version)"
+
+echo "installing a few global npm packages"
+yarn global add npmrc gatsby serve diff-so-fancy fkill-cli semantic-release-cli \
+npm-check-updates yo @vue/cli create-react-app @angular/cli npkill fastify-cli
+
+npmrc
+echo "\nPlease, setup additional .npmrc's if needed. Check documentation:"
+echo "https://www.npmjs.com/package/npmrc" 
 
 echo "configuring karabiner-elements"
 brew services start yqrashawn/goku/goku
@@ -75,6 +113,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 nvim +PlugInstall
 
 echo "Adding gh extensions"
+gh auth login
 gh extension install vilmibm/gh-user-status
 gh extension install mislav/gh-branch
 gh extension install davidraviv/gh-clean-branches
@@ -96,10 +135,10 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool TRUE
 #sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "0x6D746873"
 
 # Set standby delay to 24 hours (default is 1 hour)
-sudo pmset -a standbydelay 86400
+# sudo pmset -a standbydelay 86400
 
 # Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
+# sudo nvram SystemAudioVolume=" "
 
 # Disable transparency in the menu bar and elsewhere on Yosemite
 # defaults write com.apple.universalaccess reduceTransparency -bool true
@@ -173,7 +212,7 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo Hos
 # sudo systemsetup -setrestartfreeze on
 
 # Never go into computer sleep mode
-sudo systemsetup -setcomputersleep Off > /dev/null
+# sudo systemsetup -setcomputersleep Off > /dev/null
 
 # Disable Notification Center and remove the menu bar icon
 # launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
@@ -243,8 +282,8 @@ defaults write http://com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag 
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 2
 
 # Use scroll gesture with the Ctrl (^) modifier key to zoom
-defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
+sudo defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
+sudo defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
 # Follow the keyboard focus while zoomed in
 # defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
@@ -318,7 +357,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Finder: show hidden files by default
-#defaults write com.apple.finder AppleShowAllFiles -bool true
+defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -392,7 +431,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Enable AirDrop over Ethernet and on unsupported Macs running Lion
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+# defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
@@ -417,6 +456,9 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 
 # Enable highlight hover effect for the grid view of a stack (Dock)
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
+
+# Move dock to left
+defaults write com.apple.dock orientation left
 
 # Set the icon size of Dock items to 16 pixels
 defaults write com.apple.dock tilesize -int 16
@@ -634,7 +676,7 @@ sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 # Disable Spotlight indexing for any volume that gets mounted and has not yet
 # been indexed before.
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
-sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
+# sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 # Change indexing order and disable some search results
 # Yosemite-specific search results (remove them if you are using macOS 10.9 or older):
 #   MENU_DEFINITION
@@ -881,8 +923,6 @@ echo "Done. Note that some of these changes require a logout/restart to take eff
 printf "TODO:\n\
 install: \n\
   focus \n\
-  bartender \n\
-  Audacity (https://www.audacityteam.org/download/) \n\
 \n\
 Restart Terminal.app\n\
 copy git config from your backup/re-login \n\

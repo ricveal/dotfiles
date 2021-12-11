@@ -1,3 +1,4 @@
 .gitconfig_work
 work_variables.zsh
 scripts/cloudflare.config.sh
+Brewfile.lock.json

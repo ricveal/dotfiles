@@ -1,4 +1,4 @@
-[includeIf "gitdir:~/desarrollo/"]
+[includeIf "gitdir:~/code/"]
   path = ~/.gitconfig_work
 [core]
 	excludesfile = ~/.gitignore_global
