@@ -925,12 +925,26 @@ done
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 
 
-printf "TODO:\n\
-install: \n\
-  focus \n\
-\n\
-Restart Terminal.app\n\
-copy git config from your backup/re-login \n\
-copy .npmrc from your backup/re-login \n\
-login to literally everything \n\
+printf "There are some extra thing to do:\n\
+- Manually install these apps: \n\
+  - Adobe Illustrator \n\
+  - Adobe Photoshop \n\
+  - Adobe Lightroom \n\
+  - Apex One \n\
+  - AutoFirma \n\
+  - Configurador FNMT \n\
+  - Deckset \n\
+  - Focus \n\
+  - Keyboard Maestro \n\
+  - Transmit \n\
+  - Filebot \n\
+  - OnScreen Control (LG) \n\
+  - Logi Capture \n\
+  - Reeder \n\
+  - Log Tail \n\
+  - Pulse Secure \n\
+- Restart Terminal.app\n\
+- Copy git config from your backup/re-login \n\
+- Copy .npmrc from your backup/re-login \n\
+- Login to literally everything \n\
 "
