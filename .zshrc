@@ -162,7 +162,7 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-17.jdk/Contents/Home
 
 # Modern Unix Commands
 # https://github.com/ibraheemdev/modern-unix
-alias cat=/usr/local/bin/bat
+alias cat=/opt/homebrew/bin/bat
 
 # GENERAL
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
@@ -227,9 +227,9 @@ cht() { curl cht.sh/$1 }
 cdd() {
   if [ -n "$1" ]
     then
-      cd ~/desarrollo/$1
+      cd ~/code/$1
     else
-      cd ~/desarrollo
+      cd ~/code
   fi
 }
 
@@ -258,7 +258,7 @@ sudo killall Karabiner-Elements'
 # Other files
 
 # Private / secret stuff - WORK_PROXY env variable
-source ~/work_variables.zsh
+source ~/dotfiles/work_variables.zsh
 
 eval $(thefuck --alias)
 
