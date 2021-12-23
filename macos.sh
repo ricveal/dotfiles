@@ -105,7 +105,8 @@ echo "\nPlease, setup additional .npmrc's if needed. Check documentation:"
 echo "https://www.npmjs.com/package/npmrc" 
 
 echo "configuring karabiner-elements"
-brew services start yqrashawn/goku/goku
+echo '{"profiles" : [ {"name" : "Default", "selected" : true } ]}' > ~/.config/karabiner/karabiner.json
+brew services start goku
 
 echo "starting NVIM configuration..."
 echo "installing nvim dependencies"

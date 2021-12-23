@@ -114,6 +114,7 @@
              }
  :devices {
            :macbook [{:product_id 632 :vendor_id 1452}]
+           :macbook-13 [{:product_id 833 :vendor_id 1452}]
            :ms-keyboard [{:product_id 1977 :vendor_id 1118}]
            :bt-keyboard [{:product_id 569 :vendor_id 1452}]
            ;
