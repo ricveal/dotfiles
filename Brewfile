@@ -12,7 +12,6 @@ tap "jbangdev/tap"
 tap "yqrashawn/goku"
 brew "asciinema"
 brew "aspell"
-brew "autojump"
 brew "bash"
 brew "bat"
 brew "broot"
@@ -24,6 +23,7 @@ brew "duf"
 brew "dust"
 brew "exa"
 brew "exiftool"
+brew "fasd"
 brew "fd"
 brew "ffmpeg"
 brew "fortune"
@@ -165,6 +165,7 @@ mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "MindNode", id: 1289197285
 mas "Next Meeting", id: 1017470484
+mas "Numbers", id: 409203825
 mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Refined GitHub", id: 1519867270

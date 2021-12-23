@@ -119,7 +119,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git node macos python extract fast-syntax-highlighting zsh-autosuggestions zsh-completions git-extra-commands zsh-history-substring-search
+  git node macos python extract fasd fast-syntax-highlighting zsh-autosuggestions zsh-completions git-extra-commands zsh-history-substring-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -127,6 +127,10 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 autoload -U compinit && compinit
+
+# fasd init
+eval "$(fasd --init zsh-wcomp-install zsh-hook zsh-ccomp)"
+alias j='fasd_cd -d'
 
 ## NVM configuration
 export NVM_DIR="$HOME/.nvm"
