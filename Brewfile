@@ -10,6 +10,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "jbangdev/tap"
 tap "yqrashawn/goku"
+brew "act"
 brew "asciinema"
 brew "aspell"
 brew "bash"
@@ -139,6 +140,7 @@ cask "qlvideo"
 cask "quicklook-csv"
 cask "quicklook-json"
 cask "quicklookase"
+cask "rectangle"
 cask "rescuetime"
 cask "sequel-pro"
 cask "skype"
@@ -152,6 +154,7 @@ cask "temurin"
 cask "toggl-track"
 cask "transmission"
 cask "tunnelblick"
+cask "ukelele"
 cask "visual-studio-code"
 cask "vlc"
 cask "webpquicklook"
@@ -163,6 +166,7 @@ mas "Hand Mirror", id: 1502839586
 mas "Home Assistant", id: 1099568401
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
+mas "Microsoft Outlook", id: 985367838
 mas "MindNode", id: 1289197285
 mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
@@ -172,5 +176,6 @@ mas "Refined GitHub", id: 1519867270
 mas "Shareful", id: 1522267256
 mas "The Unarchiver", id: 425424353
 mas "Twitter", id: 1482454543
+mas "Typist", id: 415166115
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
