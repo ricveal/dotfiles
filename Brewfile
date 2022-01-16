@@ -167,11 +167,9 @@ mas "Hand Mirror", id: 1502839586
 mas "Home Assistant", id: 1099568401
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
-mas "Microsoft Outlook", id: 985367838
 mas "MindNode", id: 1289197285
 mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
-mas "OneDrive", id: 823766827
 mas "Pages", id: 409201541
 mas "Refined GitHub", id: 1519867270
 mas "Shareful", id: 1522267256
