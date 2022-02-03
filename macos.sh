@@ -931,7 +931,7 @@ printf "There are some extra thing to do:\n\
   - Adobe Illustrator \n\
   - Adobe Photoshop \n\
   - Adobe Lightroom \n\
-  - Apex One \n\
+  - Microsoft Office \n\
   - AutoFirma \n\
   - Configurador FNMT \n\
   - Deckset \n\
