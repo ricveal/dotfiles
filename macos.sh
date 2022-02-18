@@ -938,7 +938,6 @@ printf "There are some extra thing to do:\n\
   - Focus \n\
   - Keyboard Maestro \n\
   - Transmit \n\
-  - Filebot \n\
   - OnScreen Control (LG) \n\
   - Logi Capture \n\
   - Reeder \n\

@@ -154,12 +154,17 @@ alias ipe='curl ipinfo.io/ip'
 alias proxyon='sh ~/scripts/proxy_on.sh'
 alias proxyoff='sh ~/scripts/proxy_off.sh'
 alias getnpmrc='readlink ~/.npmrc | cut -d '/' -f 5'
+alias cpprogress='rsync -ah --progress '
 function qr { curl qrcode.show/$@; }
 
 # MAC
 alias brewupdate="brew update && brew upgrade && brew upgrade --cask && brew cleanup -s && brew doctor && brew missing && pip-update"
 alias hidedesk='defaults write com.apple.finder CreateDesktop -bool false; killall Finder;'
 alias showdesk='defaults write com.apple.finder CreateDesktop -bool true; killall Finder;'
+
+# Filebot
+function fbmovie { filebot -rename -r ./$@ --file-filter f.video --db TheMovieDB --format {ny}/{ny}{' CD'+pi}{subt} --output /Volumes/Movies; }
+function fbserie { filebot -rename -r ./$@ --file-filter f.video --db TheTVDB --format "{n}/{'Season '+s}/{s00e00} - {t}" --output /Volumes/Series; }
 
 # GIT
 function gc { git commit -m "$@"; }
