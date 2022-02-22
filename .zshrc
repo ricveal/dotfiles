@@ -124,6 +124,7 @@ export LANG=es_ES.UTF-8
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+export GPG_TTY=$(tty)
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh

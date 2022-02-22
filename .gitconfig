@@ -68,3 +68,5 @@
 	rebase = false
 [init]
 	defaultBranch = main
+[gpg]
+	program = /opt/homebrew/bin/gpg
