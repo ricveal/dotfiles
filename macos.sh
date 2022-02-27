@@ -27,7 +27,7 @@ mkdir -p "${HOME}/code"
 echo "installing homebrew"
 # install homebrew https://brew.sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/ricveal/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ${HOME}/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 echo "Generating an RSA token for GitHub"
 mkdir -p ~/.ssh
