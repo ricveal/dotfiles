@@ -33,8 +33,7 @@ echo "Generating an RSA token for GitHub"
 mkdir -p ~/.ssh
 touch ~/.ssh/config
 ssh-keygen -t rsa -b 4096
-read wait
-echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_rsa" | tee ~/.ssh/config
+${echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_rsa" | tee ~/.ssh/config}
 eval "$(ssh-agent -s)"
 echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub. Then press <ENTER>"
 read wait
@@ -67,14 +66,12 @@ echo "making configuration symbolic references to dotfiles"
 rm -rf "${HOME}/.zshrc"
 ln -s "${HOME}/dotfiles/.zshrc" "${HOME}/.zshrc"
 ln -s "${HOME}/dotfiles/.gitconfig" "${HOME}/.gitconfig"
-ln -s "${HOME}/dotfiles/.gitconfig_work" "${HOME}/.gitconfig_work"
 ln -s "${HOME}/dotfiles/.git_commit_template" "${HOME}/.git_commit_template"
 ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 ln -sF "${HOME}/dotfiles/scripts" "${HOME}/scripts"
 mkdir "${HOME}/.config"
 ln -s "${HOME}/dotfiles/karabiner.edn" "${HOME}/.config/karabiner.edn"
 ln -s "${HOME}/dotfiles/nvim" "${HOME}/.config/nvim"
-touch work_variables.zsh
 
 echo "installing oh-my-zsh plugins"
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
@@ -87,6 +84,9 @@ git clone https://github.com/unixorn/git-extra-commands.git \
   ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/git-extra-commands
 git clone https://github.com/zsh-users/zsh-history-substring-search \
   ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+git clone https://github.com/bobthecow/git-flow-completion \
+  ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/git-flow-completion
+
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
   ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/themes/spaceship-prompt --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
@@ -468,7 +468,7 @@ defaults write com.apple.dock mouse-over-hilite-stack -bool true
 defaults write com.apple.dock orientation left
 
 # Set the icon size of Dock items to 16 pixels
-defaults write com.apple.dock tilesize -int 16
+defaults write com.apple.dock tilesize -int 32
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
@@ -949,3 +949,8 @@ printf "There are some extra thing to do:\n\
 - Copy .npmrc from your backup/re-login \n\
 - Login to literally everything \n\
 "
+
+# How to GPG
+# https://gist.github.com/troyfontaine/18c9146295168ee9ca2b30c00bd1b41e
+# echo "pinentry-program /opt/homebrew/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf 
+# killall gpg-agent
