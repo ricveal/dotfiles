@@ -1,5 +1,5 @@
 [includeIf "gitdir:~/code/"]
-  path = ~/.gitconfig_work
+  path = ~/dotfiles/.gitconfig_work
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
@@ -24,6 +24,12 @@
 	changelog = log origin..HEAD --format='* %s%n%w(,4,4)%+b'
 	amend = commit --amend --no-edit
 	fixup = commit --amend --no-edit --allow-empty "$@"
+	feature = checkout -b feature/"$@"
+	hotfix = checkout -b hotfix/"$@"
+	release = checkout -b release/"$@"
+	dev = checkout develop
+	main = checkout master
+	cm = commit -m
 	co = checkout
 	st = status
 	br = branch
@@ -61,7 +67,6 @@
 	whitespace = nowarn
 [push]
 	default = simple
-
 [http]
 	sslVerify = true
 [pull]
