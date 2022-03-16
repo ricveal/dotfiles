@@ -936,7 +936,6 @@ printf "There are some extra thing to do:\n\
   - AutoFirma \n\
   - Configurador FNMT \n\
   - Deckset \n\
-  - Focus \n\
   - Keyboard Maestro \n\
   - Transmit \n\
   - OnScreen Control (LG) \n\
