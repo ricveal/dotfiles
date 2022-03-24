@@ -25,3 +25,8 @@ function download () {
 }
 
 function gi() { curl -fL https://www.gitignore.io/api/${(j:,:)@} }
+
+function change-version() {
+    tmp=$(mktemp)
+    jq --arg VERSION "$1" '.version = $VERSION' package.json > "$tmp" && mv "$tmp" package.json
+}
