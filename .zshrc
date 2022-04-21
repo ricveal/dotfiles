@@ -179,6 +179,7 @@ dif() { git diff --color --no-index "$1" "$2" | diff-so-fancy; }
 cdiff() { code --diff "$1" "$2"; }
 alias gits='git init && git add . && git commit -m "Starting repository"'
 alias gac='ga && git commit -a -m '
+grr() { git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done }
 
 # NPM
 alias ni="npm install";
