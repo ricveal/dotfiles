@@ -163,6 +163,7 @@ alias python="python3"
 alias brewupdate="brew update && brew upgrade && brew upgrade --cask && brew cleanup -s && brew doctor && brew missing && pip-update"
 alias hidedesk='defaults write com.apple.finder CreateDesktop -bool false; killall Finder;'
 alias showdesk='defaults write com.apple.finder CreateDesktop -bool true; killall Finder;'
+alias brewbck='rm -f ~/dotfiles/Brewfile && brew bundle dump && mv Brewfile ~/dotfiles/Brewfile'
 
 # Filebot
 function fbmovie { filebot -rename -r ./$@ --file-filter f.video --db TheMovieDB --format {ny}/{ny}{' CD'+pi}{subt} --output /Volumes/Movies; }
