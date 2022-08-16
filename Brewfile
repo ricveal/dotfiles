@@ -125,7 +125,6 @@ cask "karabiner-elements"
 cask "keka"
 cask "loopback"
 cask "macdropany"
-cask "mattermost"
 cask "microsoft-remote-desktop"
 cask "microsoft-teams"
 cask "mkvtoolnix"
@@ -149,6 +148,7 @@ cask "rancher"
 cask "rectangle"
 cask "sequel-pro"
 cask "skype"
+cask "slack"
 cask "sourcetree"
 cask "spotify"
 cask "steam"
@@ -167,6 +167,7 @@ cask "vlc"
 cask "webpquicklook"
 cask "xquartz"
 cask "zoom"
+mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "GarageBand", id: 682658836
 mas "Hand Mirror", id: 1502839586
