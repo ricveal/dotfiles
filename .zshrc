@@ -225,6 +225,7 @@ cdd() {
 mg () { mkdir "$@" && cd "$@" || exit; }
 npm-latest() { npm info "$1" | grep latest; }
 killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}
+weather() { curl "http://wttr.in/$1\?lang\=es"; }
 
 # Other alias
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
@@ -232,6 +233,7 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 alias findprocess="ps -ax | grep -i"
 alias sign="sudo xattr -r -d com.apple.quarantine"
+alias daily="weather && echo "" && cal"
 
 # Karabiner
 alias karabinerLoad='launchctl load /Library/LaunchAgents/org.pqrs.karabiner.karabiner_console_user_server.plist; \
