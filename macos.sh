@@ -71,7 +71,7 @@ ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 ln -sF "${HOME}/dotfiles/scripts" "${HOME}/scripts"
 mkdir "${HOME}/.config"
 ln -s "${HOME}/dotfiles/karabiner.edn" "${HOME}/.config/karabiner.edn"
-ln -s "${HOME}/dotfiles/nvim" "${HOME}/.config/nvim"
+ln -s "${HOME}/dotfiles/SpaceVim.init.toml" "${HOME}/.SpaceVim.d/init.toml"
 
 echo "installing oh-my-zsh plugins"
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
@@ -109,15 +109,9 @@ echo "configuring karabiner-elements"
 echo '{"profiles" : [ {"name" : "Default", "selected" : true } ]}' > ~/.config/karabiner/karabiner.json
 brew services start goku
 
-echo "starting NVIM configuration..."
-echo "installing nvim dependencies"
-pip3 install --user pynvim
-yarn global add neovim diagnostic-languageserver typescript-language-server
+echo "starting VIM configuration..."
+curl -sLf https://spacevim.org/install.sh | bash
 
-echo "installing nvim plugin manager"
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-nvim +PlugInstall
 
 echo "Adding gh extensions"
 gh auth login
