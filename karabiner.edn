@@ -122,11 +122,6 @@
            }
  :main [;
 
-        {:des "MS Keyboard specific mappings"
-        :rules [:ms-keyboard
-                [{:key :##non_us_backslash} {:key :##grave_accent_and_tilde}]
-                [{:key :##grave_accent_and_tilde} {:key :##non_us_backslash}]
-        ]}
 
         {:des "media"
          :rules [:media-mode
