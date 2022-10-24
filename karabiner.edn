@@ -98,6 +98,7 @@
 
  :applications {;
                 :chrome ["com.google.Chrome"]
+                :safari ["com.apple.Safari"]
                 :code ["com.microsoft.VSCode"]
                 ;
                 }
@@ -138,6 +139,13 @@
                  [:-a :focus_omnibar]
                  [:-d :open_dev_tools]
                  [:-f :chrome_full_screen]
+                 ;
+                 ;
+                 ]}
+
+        {:des "safari"
+         :rules [:safari
+                 [:app :focus_omnibar]
                  ;
                  ;
                  ]}
