@@ -22,7 +22,7 @@ SPACESHIP_GIT_PREFIX="("
 SPACESHIP_GIT_SUFFIX=") "
 SPACESHIP_PROMPT_DEFAULT_PREFIX=""
 SPACESHIP_PACKAGE_PREFIX="-> "
-SPACESHIP_NODE_SUFFIX=" ($(readlink ~/.npmrc | cut -d '/' -f 5)) "
+SPACESHIP_NODE_SUFFIX=" ($(check-npmrc)) "
 SPACESHIP_BATTERY_THRESHOLD=20
 
 # Set list of themes to pick from when loading at random

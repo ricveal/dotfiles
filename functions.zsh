@@ -30,3 +30,5 @@ function change-version() {
     tmp=$(mktemp)
     jq --arg VERSION "$1" '.version = $VERSION' package.json > "$tmp" && mv "$tmp" package.json
 }
+
+function check-npmrc() { readlink ~/.npmrc | cut -d '/' -f 5 }
