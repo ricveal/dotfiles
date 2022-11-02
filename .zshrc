@@ -1,5 +1,4 @@
 # Custom functions
-
 source ~/dotfiles/functions.zsh
 
 # If you come from bash you might have to change your $PATH.
@@ -95,18 +94,10 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git node macos python extract fasd fast-syntax-highlighting zsh-autosuggestions zsh-completions git-extra-commands git-flow-completion zsh-history-substring-search
+  git node macos python extract z fast-syntax-highlighting zsh-autosuggestions zsh-completions git-extra-commands zsh-history-substring-search
 )
 
 source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-autoload -U compinit && compinit
-
-# fasd init
-eval "$(fasd --init zsh-wcomp-install zsh-hook zsh-ccomp)"
-alias j='fasd_cd -d'
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
