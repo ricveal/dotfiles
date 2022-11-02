@@ -92,7 +92,10 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 echo "installing last Node.js LTS version"
-nvm install $(nvm ls-remote | grep -i 'Latest LTS' | tail -1 | sed -rn "s/.*v([[:digit:]]+).*/\1/p")
+volta install node
+
+echo "reloading ZSH"
+source ~/.zshrc
 
 echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
