@@ -92,7 +92,11 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 echo "installing last Node.js LTS version"
-volta install node
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin-add direnv
+asdf direnv setup --shell zsh --version latest
+asdf install nodejs lts
+asdf global nodejs lts
 
 echo "reloading ZSH"
 source ~/.zshrc
