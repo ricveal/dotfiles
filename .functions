@@ -1,0 +1,58 @@
+# Custom functions
+
+function download () {
+    cd ~/Downloads && { curl -O -C - "$1" ; cd -; }
+}
+
+function gi() { curl -fL https://www.gitignore.io/api/${(j:,:)@} }
+
+function change-version() {
+    tmp=$(mktemp)
+    jq --arg VERSION "$1" '.version = $VERSION' package.json > "$tmp" && mv "$tmp" package.json
+}
+
+function check-npmrc() { readlink ~/.npmrc | cut -d '/' -f 5 }
+
+# CheatSheet
+cht() { curl cht.sh/$1 }
+
+# PROJECTS
+cdd() {
+  if [ -n "$1" ]
+    then
+      cd ~/code/$1
+    else
+      cd ~/code
+  fi
+}
+
+mg () { mkdir "$@" && cd "$@" || exit; }
+npm-latest() { npm info "$1" | grep latest; }
+killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}
+weather() { curl "http://wttr.in/$1\?lang\=es"; }
+function qr { curl qrcode.show/$@; }
+
+# Filebot
+function fbmovie { filebot -rename -r ./$@ --file-filter f.video --db TheMovieDB --format {ny}/{ny}{' CD'+pi}{subt} --output /Volumes/Movies; }
+function fbserie { filebot -rename -r ./$@ --file-filter f.video --db TheTVDB --format "{n}/{'Season '+s}/{s00e00} - {t}" --output /Volumes/Series; }
+
+
+### Functions for setting and getting environment variables from the OSX keychain ###
+### Adapted from https://www.netmeister.org/blog/keychain-passwords.html ###
+
+# Use: keychain-environment-variable SECRET_ENV_VAR
+function keychain-environment-variable () {
+    security find-generic-password -w -a ${USER} -D "environment variable" -s "${1}"
+}
+
+# Use: set-keychain-environment-variable SECRET_ENV_VAR
+#   provide: super_secret_key_abc123
+function set-keychain-environment-variable () {
+    [ -n "$1" ] || print "Missing environment variable name"
+
+    # Note: if using bash, use `-p` to indicate a prompt string, rather than the leading `?`
+    read -s "?Enter Value for ${1}: " secret
+
+    ( [ -n "$1" ] && [ -n "$secret" ] ) || return 1
+    security add-generic-password -U -a ${USER} -D "environment variable" -s "${1}" -w "${secret}"
+}

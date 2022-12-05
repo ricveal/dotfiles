@@ -1,5 +1,5 @@
 # Custom functions
-source ~/dotfiles/functions.zsh
+source ~/dotfiles/.functions
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -118,13 +118,6 @@ export LANG=es_ES.UTF-8
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 export GPG_TTY=$(tty)
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-
 # Android Development
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -133,106 +126,10 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-18.jdk/Contents/Home"
 
-# Modern Unix Commands
-# https://github.com/ibraheemdev/modern-unix
-alias cat=/opt/homebrew/bin/bat
+# Aliases
+source ~/dotfiles/.alias
 
-# GENERAL
-alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
-alias pip-update="pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
-alias hs='history | grep'
-alias www='python -m http.server'
-alias speed='speedtest-cli --server 2406 --simple'
-alias ipe='curl ipinfo.io/ip'
-alias proxyon='sh ~/scripts/proxy_on.sh'
-alias proxyoff='sh ~/scripts/proxy_off.sh'
-alias getnpmrc='readlink ~/.npmrc | cut -d '/' -f 5'
-alias cpprogress='rsync -ah --progress '
-function qr { curl qrcode.show/$@; }
-
-# MAC
-alias python="python3"
-alias brewupdate="brew update && brew upgrade && brew upgrade --cask && brew cleanup -s && brew doctor && brew missing && pip-update"
-alias hidedesk='defaults write com.apple.finder CreateDesktop -bool false; killall Finder;'
-alias showdesk='defaults write com.apple.finder CreateDesktop -bool true; killall Finder;'
-alias brewbck='rm -f ~/dotfiles/Brewfile && brew bundle dump && mv Brewfile ~/dotfiles/Brewfile'
-
-# Filebot
-function fbmovie { filebot -rename -r ./$@ --file-filter f.video --db TheMovieDB --format {ny}/{ny}{' CD'+pi}{subt} --output /Volumes/Movies; }
-function fbserie { filebot -rename -r ./$@ --file-filter f.video --db TheTVDB --format "{n}/{'Season '+s}/{s00e00} - {t}" --output /Volumes/Series; }
-
-# GIT
-function gc { git commit -m "$@"; }
-alias gs="git status";
-alias gp="git pull";
-alias gf="git fetch";
-alias gpush="git push";
-alias gd="git diff";
-alias ga="git add .";
-dif() { git diff --color --no-index "$1" "$2" | diff-so-fancy; }
-cdiff() { code --diff "$1" "$2"; }
-alias gits='git init && git add . && git commit -m "Starting repository"'
-alias gac='ga && git commit -a -m '
-grr() { git fetch -p && for branch in $(git for-each-ref --format '%(refname) %(upstream:track)' refs/heads | awk '$2 == "[gone]" {sub("refs/heads/", "", $1); print $1}'); do git branch -D $branch; done }
-
-# NPM
-alias ni="npm install";
-alias nis='npm install --save'
-alias nisd='npm install --save-dev'
-alias npm-update="npx npm-check -u";
-alias yarn-update="yarn upgrade-interactive --latest";
-alias nrs="npm run start -s --";
-alias nrb="npm run build -s --";
-alias nrd="npm run dev -s --";
-alias nrt="npm run test -s --";
-alias nrtw="npm run test:watch -s --";
-alias nrv="npm run validate -s --";
-alias rmn="rm -rf node_modules";
-alias flush-npm="rm -rf node_modules && npm i && say NPM is done";
-alias nicache="npm install --prefer-offline";
-alias nioff="npm install --offline";
-
-# CheatSheet
-cht() { curl cht.sh/$1 }
-
-# PROJECTS
-cdd() {
-  if [ -n "$1" ]
-    then
-      cd ~/code/$1
-    else
-      cd ~/code
-  fi
-}
-
-mg () { mkdir "$@" && cd "$@" || exit; }
-npm-latest() { npm info "$1" | grep latest; }
-killport() { lsof -i tcp:"$*" | awk 'NR!=1 {print $2}' | xargs kill -9 ;}
-weather() { curl "http://wttr.in/$1\?lang\=es"; }
-
-# Other alias
-alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
-alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
-alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
-alias findprocess="ps -ax | grep -i"
-alias sign="sudo xattr -r -d com.apple.quarantine"
-alias daily="weather && echo "" && cal"
-
-# Karabiner
-alias karabinerLoad='launchctl load /Library/LaunchAgents/org.pqrs.karabiner.karabiner_console_user_server.plist; \
-sudo launchctl load /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_grabber.plist; \
-sudo launchctl load /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_observer.plist;'
-alias karabinerUnload='launchctl unload /Library/LaunchAgents/org.pqrs.karabiner.karabiner_console_user_server.plist; \
-sudo launchctl unload /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_grabber.plist; \
-sudo launchctl unload /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_observer.plist; \
-sudo killall karabiner_grabber; \
-sudo killall karabiner_console_user_server; \
-sudo killall Karabiner-Menu; \
-sudo killall Karabiner-Elements'
-
-# Other files
-
-# Private / secret stuff - WORK_PROXY env variable
+# Private / secret stuff
 source ~/dotfiles/work_variables.zsh
 
 eval $(thefuck --alias)
