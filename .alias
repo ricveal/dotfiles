@@ -3,6 +3,8 @@
 alias cat=/opt/homebrew/bin/bat
 
 # GENERAL
+alias c="code ."
+alias hosts='sudo nvim /etc/hosts'
 alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias pip-update="pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
 alias hs='history | grep'
@@ -60,6 +62,7 @@ alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 alias findprocess="ps -ax | grep -i"
 alias sign="sudo xattr -r -d com.apple.quarantine"
 alias daily="weather && echo "" && cal"
+alias tf="terraform"
 
 # Karabiner
 alias karabinerLoad='launchctl load /Library/LaunchAgents/org.pqrs.karabiner.karabiner_console_user_server.plist; \
