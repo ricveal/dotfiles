@@ -72,6 +72,7 @@ ln -sF "${HOME}/dotfiles/scripts" "${HOME}/scripts"
 mkdir "${HOME}/.config"
 ln -s "${HOME}/dotfiles/karabiner.edn" "${HOME}/.config/karabiner.edn"
 ln -s "${HOME}/dotfiles/SpaceVim.init.toml" "${HOME}/.SpaceVim.d/init.toml"
+ln -s "${HOME}/dotfiles/.curlrc" "${HOME}/.curlrc"
 
 echo "installing oh-my-zsh plugins"
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
