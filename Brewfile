@@ -181,6 +181,7 @@ cask "zoom"
 mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "GarageBand", id: 682658836
+mas "Grammarly for Safari", id: 1462114288
 mas "Hand Mirror", id: 1502839586
 mas "Home Assistant", id: 1099568401
 mas "iMovie", id: 408981434
