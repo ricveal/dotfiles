@@ -71,7 +71,6 @@ ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 ln -sF "${HOME}/dotfiles/scripts" "${HOME}/scripts"
 mkdir "${HOME}/.config"
 ln -s "${HOME}/dotfiles/karabiner.edn" "${HOME}/.config/karabiner.edn"
-ln -s "${HOME}/dotfiles/SpaceVim.init.toml" "${HOME}/.SpaceVim.d/init.toml"
 ln -s "${HOME}/dotfiles/.curlrc" "${HOME}/.curlrc"
 
 echo "installing oh-my-zsh plugins"
@@ -91,6 +90,10 @@ git clone https://github.com/bobthecow/git-flow-completion \
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
   ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/themes/spaceship-prompt --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+
+echo "configuring tmux"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ln -s "${HOME}/dotfiles/.tmux.conf" "${HOME}/.tmux.conf"
 
 echo "installing last Node.js LTS version"
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
@@ -118,7 +121,12 @@ echo '{"profiles" : [ {"name" : "Default", "selected" : true } ]}' > ~/.config/k
 brew services start goku
 
 echo "starting VIM configuration..."
+pip install neovim
+npm install -g typescript neovim
 curl -sLf https://spacevim.org/install.sh | bash
+mv "${HOME}/.nvim" "${HOME}/.config/nvim"
+rm -rf "${HOME}/.SpaceVim.d/init.toml"
+ln -s "${HOME}/dotfiles/SpaceVim.init.toml" "${HOME}/.SpaceVim.d/init.toml"
 
 
 echo "Adding gh extensions"
