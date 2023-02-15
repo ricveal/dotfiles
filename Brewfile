@@ -173,7 +173,6 @@ cask "stretchly"
 cask "sublime-text"
 cask "suspicious-package"
 cask "temurin"
-cask "toggl-track"
 cask "transmission"
 cask "tunnelblick"
 cask "ukelele"
@@ -198,6 +197,7 @@ mas "Pages", id: 409201541
 mas "Refined GitHub", id: 1519867270
 mas "Shareful", id: 1522267256
 mas "The Unarchiver", id: 425424353
+mas "Toggl Track", id: 1291898086
 mas "Twitter", id: 1482454543
 mas "Typist", id: 415166115
 mas "WireGuard", id: 1451685025
