@@ -91,6 +91,9 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
   ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/themes/spaceship-prompt --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
+echo "configuring kitty"
+ln -s "${HOME}/dotfiles/kitty.conf" "${HOME}/.config/kitty/kitty.conf"
+
 echo "configuring tmux"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -s "${HOME}/dotfiles/.tmux.conf" "${HOME}/.tmux.conf"

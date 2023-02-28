@@ -31,3 +31,5 @@ Karabiner configurations which I take as first approach:
 - [Nikita Voloboev](https://nikitavoloboev.xyz/)
 - [Takuya Matsuyama](https://github.com/craftzdog/dotfiles-public)
 - [thoughtbot](https://github.com/thoughtbot/dotfiles)
+- [Nick Nisi](https://github.com/nicknisi/dotfiles)
+- [ThePrimeagen](https://github.com/ThePrimeagen/.dotfiles)
