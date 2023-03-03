@@ -94,6 +94,10 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 echo "configuring kitty"
 ln -s "${HOME}/dotfiles/kitty.conf" "${HOME}/.config/kitty/kitty.conf"
 
+echo "configuring wezterm"
+mkdir ${HOME}/.config/wezterm/
+ln -s "${HOME}/dotfiles/wezterm.lua" "${HOME}/.config/wezterm/wezterm.lua"
+
 echo "configuring tmux"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -s "${HOME}/dotfiles/.tmux.conf" "${HOME}/.tmux.conf"
