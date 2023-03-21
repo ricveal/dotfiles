@@ -186,6 +186,8 @@ cask "wezterm"
 cask "xquartz"
 cask "zoom"
 mas "1Password for Safari", id: 1569813296
+mas "Aiko", id: 1672085276
+mas "Amazing AI", id: 1660147028
 mas "Amphetamine", id: 937984704
 mas "GarageBand", id: 682658836
 mas "Grammarly for Safari", id: 1462114288
