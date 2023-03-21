@@ -1,19 +1,6 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
-local mod = "SHIFT|SUPER"
-
-local function font(opts)
-  return wezterm.font_with_fallback({
-    opts,
-    "Symbols Nerd Font Mono",
-  })
-end
-
--- The filled in variant of the < symbol
-local SOLID_LEFT_ARROW = utf8.char(0xe0b2)
-
--- The filled in variant of the > symbol
-local SOLID_RIGHT_ARROW = utf8.char(0xe0b0)
+local mod = "CMD"
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
   return {
@@ -39,40 +26,10 @@ return {
 		make_mouse_binding("Up", 2, "Left", "NONE", wezterm.action.CompleteSelection("ClipboardAndPrimarySelection")),
 		make_mouse_binding("Up", 3, "Left", "NONE", wezterm.action.CompleteSelection("ClipboardAndPrimarySelection")),
 	},
-  term = "wezterm",
-  font_size = 12,
-  font = font("Fira Code"),
-  font_rules = {
-    {
-      italic = true,
-      intensity = "Normal",
-      font = font({
-        family = "Victor Mono",
-        style = "Italic",
-      }),
-    },
-    {
-      italic = true,
-      intensity = "Half",
-      font = font({
-        family = "Victor Mono",
-        weight = "DemiBold",
-        style = "Italic",
-      }),
-    },
-    {
-      italic = true,
-      intensity = "Bold",
-      font = font({
-        family = "Victor Mono",
-        weight = "Bold",
-        style = "Italic",
-      }),
-    },
-  },
-  color_scheme_dirs = { "/home/folke/projects/tokyonight.nvim/extras/wezterm" },
-  color_scheme = "tokyonight_moon",
-  use_fancy_tab_bar = true,
+  -- term = "wezterm",
+  font_size = 16,
+  font = wezterm.font 'Fira Code',
+  color_scheme = "NightOwl (Gogh)",
   tab_bar_at_bottom = true,
   hide_tab_bar_if_only_one_tab = true,
   show_tab_index_in_tab_bar = false,
@@ -84,11 +41,11 @@ return {
     -- Whatever font is selected here, it will have the
     -- main font setting appended to it to pick up any
     -- fallback fonts you may have used there.
-    font = font({ family = "Fira Code", weight = "Bold" }),
+    font = wezterm.font 'Fira Code',
 
     -- The size of the font in the tab bar.
     -- Default to 10. on Windows but 12.0 on other systems
-    font_size = 11.0,
+    font_size = 12.0,
 
     -- The overall background color of the tab bar when
     -- the window is focused
@@ -125,7 +82,7 @@ return {
     { mods = 'CMD', key = 'q', action = wezterm.action.QuitApplication },
   },
   bold_brightens_ansi_colors = true,
-  window_background_opacity = 0.9,
+  window_background_opacity = 0.95,
   cell_width = 0.9,
   scrollback_lines = 10000,
   hyperlink_rules = {
