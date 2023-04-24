@@ -206,6 +206,7 @@ mas "The Unarchiver", id: 425424353
 mas "Toggl Track", id: 1291898086
 mas "Twitter", id: 1482454543
 mas "Typist", id: 415166115
+mas "Userscripts-Mac-App", id: 1463298887
 mas "Velja", id: 1607635845
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
