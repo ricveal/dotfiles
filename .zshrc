@@ -16,7 +16,8 @@ export EDITOR="code"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="spaceship"
 
-SPACESHIP_KUBECONTEXT_SHOW=false
+SPACESHIP_AZURE_SHOW=false
+SPACESHIP_KUBECTL_CONTEXT_SHOW=false
 SPACESHIP_DOCKER_SHOW=false
 SPACESHIP_GIT_PREFIX="("
 SPACESHIP_GIT_SUFFIX=") "
