@@ -16,16 +16,6 @@ export EDITOR="code"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="spaceship"
 
-SPACESHIP_AZURE_SHOW=false
-SPACESHIP_KUBECTL_CONTEXT_SHOW=false
-SPACESHIP_DOCKER_SHOW=false
-SPACESHIP_GIT_PREFIX="("
-SPACESHIP_GIT_SUFFIX=") "
-SPACESHIP_PROMPT_DEFAULT_PREFIX=""
-SPACESHIP_PACKAGE_PREFIX="-> "
-SPACESHIP_NODE_SUFFIX=" ($(check-npmrc)) "
-SPACESHIP_BATTERY_THRESHOLD=20
-
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -141,3 +131,6 @@ eval "$(zoxide init zsh)"
 
 # Adding asdf-direnv (version manager)
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+
+# Theme configuration -> Spaceship
+source ~/dotfiles/spaceship/conf.zsh
