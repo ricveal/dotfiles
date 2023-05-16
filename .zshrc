@@ -131,6 +131,7 @@ eval "$(zoxide init zsh)"
 
 # Adding asdf-direnv (version manager)
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+export ASDF_DATA_DIR=$HOME/.asdf
 
 # Theme configuration -> Spaceship
 source ~/dotfiles/spaceship/conf.zsh
