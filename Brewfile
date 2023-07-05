@@ -5,7 +5,6 @@ tap "candid82/brew"
 tap "github/gh"
 tap "hashicorp/tap"
 tap "homebrew/bundle"
-tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/services"
@@ -188,6 +187,7 @@ mas "1Password for Safari", id: 1569813296
 mas "Aiko", id: 1672085276
 mas "Amazing AI", id: 1660147028
 mas "Amphetamine", id: 937984704
+mas "Day Progress", id: 6450280202
 mas "GarageBand", id: 682658836
 mas "Grammarly for Safari", id: 1462114288
 mas "Hand Mirror", id: 1502839586
