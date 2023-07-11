@@ -54,3 +54,9 @@ function set-keychain-environment-variable () {
     ( [ -n "$1" ] && [ -n "$secret" ] ) || return 1
     security add-generic-password -U -a ${USER} -D "environment variable" -s "${1}" -w "${secret}"
 }
+
+### Update ZSH theme
+function zsh-update-theme () {
+    git -C $ZSH_CUSTOM/themes/$ZSH_THEME fetch -p
+    git -C $ZSH_CUSTOM/themes/$ZSH_THEME pull
+}

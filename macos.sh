@@ -88,8 +88,8 @@ git clone https://github.com/bobthecow/git-flow-completion \
   ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/git-flow-completion
 
 git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
-  ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/themes/spaceship-prompt --depth=1
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+  ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/themes/spaceship --depth=1
+ln -s "$ZSH_CUSTOM/themes/spaceship/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 echo "configuring kitty"
 ln -s "${HOME}/dotfiles/kitty.conf" "${HOME}/.config/kitty/kitty.conf"
