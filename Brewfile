@@ -195,6 +195,7 @@ mas "Grammarly for Safari", id: 1462114288
 mas "Hand Mirror", id: 1502839586
 mas "Home Assistant", id: 1099568401
 mas "iMovie", id: 408981434
+mas "Ivory", id: 6444602274
 mas "Keynote", id: 409183694
 mas "MindNode", id: 1289197285
 mas "Next Meeting", id: 1017470484
