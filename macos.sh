@@ -130,10 +130,8 @@ brew services start goku
 echo "starting VIM configuration..."
 pip install neovim
 npm install -g typescript neovim
-curl -sLf https://spacevim.org/install.sh | bash
-mv "${HOME}/.nvim" "${HOME}/.config/nvim"
-rm -rf "${HOME}/.SpaceVim.d/init.toml"
-ln -s "${HOME}/dotfiles/SpaceVim.init.toml" "${HOME}/.SpaceVim.d/init.toml"
+rm -rf "${HOME}/.config/nvim"
+ln -s "${HOME}/dotfiles/config/nvim" "${HOME}/.config/nvim"
 
 
 echo "Adding gh extensions"
