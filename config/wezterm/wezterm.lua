@@ -1,4 +1,8 @@
 local wezterm = require("wezterm")
+
+local wezdir = os.getenv("HOME") .. "/.config/wezterm"
+
+local padding = 5
 local act = wezterm.action
 local mod = "CMD"
 
@@ -8,59 +12,30 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   }
 end)
 
-local function make_mouse_binding(dir, streak, button, mods, action)
-  return {
-    event = { [dir] = { streak = streak, button = button } },
-    mods = mods,
-    action = action,
-  }
-end
-
-return {
-  -- stylua: ignore
-	mouse_bindings = {
-		make_mouse_binding( "Up", 1, "Left", "NONE", wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor("ClipboardAndPrimarySelection")),
-		make_mouse_binding( "Up", 1, "Left", "SHIFT", wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor("ClipboardAndPrimarySelection")),
-		make_mouse_binding("Up", 1, "Left", "ALT", wezterm.action.CompleteSelection("ClipboardAndPrimarySelection")),
-		make_mouse_binding( "Up", 1, "Left", "SHIFT|ALT", wezterm.action.CompleteSelectionOrOpenLinkAtMouseCursor("ClipboardAndPrimarySelection")),
-		make_mouse_binding("Up", 2, "Left", "NONE", wezterm.action.CompleteSelection("ClipboardAndPrimarySelection")),
-		make_mouse_binding("Up", 3, "Left", "NONE", wezterm.action.CompleteSelection("ClipboardAndPrimarySelection")),
-	},
-  -- term = "wezterm",
-  font_size = 16,
+local config = {
+  window_background_opacity = 0.85,
+  enable_tab_bar = false,
+  window_decorations = "RESIZE",
   font = wezterm.font 'Fira Code',
+  font_size = 14,
   color_scheme = "NightOwl (Gogh)",
-  tab_bar_at_bottom = true,
-  hide_tab_bar_if_only_one_tab = true,
-  show_tab_index_in_tab_bar = false,
-  -- window_decorations = "NONE",
-  window_frame = {
-    -- The font used in the tab bar.
-    -- Roboto Bold is the default; this font is bundled
-    -- with wezterm.
-    -- Whatever font is selected here, it will have the
-    -- main font setting appended to it to pick up any
-    -- fallback fonts you may have used there.
-    font = wezterm.font 'Fira Code',
-
-    -- The size of the font in the tab bar.
-    -- Default to 10. on Windows but 12.0 on other systems
-    font_size = 12.0,
-
-    -- The overall background color of the tab bar when
-    -- the window is focused
-    active_titlebar_bg = "#12131d",
-
-    -- The overall background color of the tab bar when
-    -- the window is not focused
-    inactive_titlebar_bg = "#1e2030",
+  adjust_window_size_when_changing_font_size = true,
+  native_macos_fullscreen_mode = true,
+  keys = {
+    {
+      key = "n",
+      mods = "SHIFT|CTRL",
+      action = wezterm.action.ToggleFullScreen,
+    },
   },
   window_padding = {
-    left = 0,
-    right = 0,
-    top = 0,
-    bottom = 0,
+    left = padding,
+    right = padding,
+    top = padding,
+    bottom = padding,
   },
+  send_composed_key_when_left_alt_is_pressed=true,
+  send_composed_key_when_right_alt_is_pressed=true,
   disable_default_key_bindings = true,
   keys = {
     { mods = mod, key = "UpArrow", action = act.ActivatePaneDirection("Up") },
@@ -124,3 +99,45 @@ return {
     },
   },
 }
+
+local appearance = wezterm.gui.get_appearance()
+
+if appearance:find("Dark") then
+  config.background = {
+    {
+      source = {
+        Gradient = {
+          orientation = "Horizontal",
+          colors = {
+            "#00000C",
+            "#000026",
+            "#00000C",
+          },
+          interpolation = "CatmullRom",
+          blend = "Rgb",
+          noise = 0,
+        },
+      },
+      width = "100%",
+      height = "100%",
+      opacity = 0.75,
+    },
+    {
+      source = {
+        File = { path = wezdir .. "/background.gif", speed = 0.3 },
+      },
+      repeat_x = "Mirror",
+      height = "100%",
+      opacity = 0.3,
+      hsb = {
+        hue = 0.9,
+        saturation = 0.9,
+        brightness = 0.3,
+      },
+    },
+  }
+else
+  config.window_background_opacity = 1
+end
+
+return config

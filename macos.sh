@@ -92,8 +92,7 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
 ln -s "$ZSH_CUSTOM/themes/spaceship/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
 echo "configuring wezterm"
-mkdir ${HOME}/.config/wezterm/
-ln -s "${HOME}/dotfiles/wezterm.lua" "${HOME}/.config/wezterm/wezterm.lua"
+ln -s "${HOME}/dotfiles/config/wezterm" "${HOME}/.config/wezterm"
 
 echo "configuring tmux"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
