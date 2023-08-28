@@ -91,9 +91,6 @@ git clone https://github.com/spaceship-prompt/spaceship-prompt.git \
   ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/themes/spaceship --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
 
-echo "configuring kitty"
-ln -s "${HOME}/dotfiles/kitty.conf" "${HOME}/.config/kitty/kitty.conf"
-
 echo "configuring wezterm"
 mkdir ${HOME}/.config/wezterm/
 ln -s "${HOME}/dotfiles/wezterm.lua" "${HOME}/.config/wezterm/wezterm.lua"
