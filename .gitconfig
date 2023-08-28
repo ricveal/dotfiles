@@ -1,18 +1,13 @@
+# https://www.justinjoyce.dev/git-tips-and-tricks/
 [includeIf "gitdir:~/code/"]
   path = ~/dotfiles/.gitconfig_work
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = code --wait
+	editor = /opt/homebrew/bin/nvim
 [diff]
   tool = default-difftool
 [difftool "default-difftool"]
   cmd = code --wait --diff $LOCAL $REMOTE
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
-[mergetool "sourcetree"]
-	cmd = code code --wait --diff $MERGED
-	trustExitCode = true
 [commit]
 	template = ~/.git_commit_template
 [alias]
@@ -33,6 +28,10 @@
 	co = checkout
 	st = status
 	br = branch
+	feap = fetch --all --prune
+  rc = rebase --continue
+  ri = rebase -i --autostash
+	unstage = reset HEAD
 	trash = checkout -f
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	# git archive --format zip --output <output_path> <branch>
@@ -65,8 +64,12 @@
 	untracked = cyan
 [apply]
 	whitespace = nowarn
+[branch]
+  autosetuprebase = always
 [push]
-	default = current
+  default = current
+[fetch]
+  prune = true
 [http]
 	sslVerify = true
 [pull]
