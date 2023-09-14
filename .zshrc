@@ -137,5 +137,5 @@ export ASDF_DATA_DIR=$HOME/.asdf
 source ~/dotfiles/spaceship/conf.zsh
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="$HOME/.rd/bin:$PATH"
+export PATH="/Users/ricveal/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

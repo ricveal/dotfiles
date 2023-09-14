@@ -1,6 +1,12 @@
 # Modern Unix Commands
 # https://github.com/ibraheemdev/modern-unix
 alias cat=/opt/homebrew/bin/bat
+alias ls=/opt/homebrew/bin/lsd
+
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 
 # GENERAL
 alias c="code ."
