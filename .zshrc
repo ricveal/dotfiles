@@ -2,8 +2,7 @@
 source ~/dotfiles/.functions
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$HOME/bin:/usr/local/sbin:$HOME/.rd/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/sbin:$HOME/dotfiles/bin:$HOME/.rd/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -135,7 +134,3 @@ export ASDF_DATA_DIR=$HOME/.asdf
 
 # Theme configuration -> Spaceship
 source ~/dotfiles/spaceship/conf.zsh
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/ricveal/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
