@@ -30,6 +30,11 @@ alias hidedesk='defaults write com.apple.finder CreateDesktop -bool false; killa
 alias showdesk='defaults write com.apple.finder CreateDesktop -bool true; killall Finder;'
 alias brewbck='rm -f $DOTFILES/Brewfile && brew bundle dump && mv Brewfile $DOTFILES/Brewfile'
 
+# tmux aliases
+alias ta='tmux attach'
+alias tls='tmux ls'
+alias tat='tmux attach -t'
+alias tns='tmux new-session -s'
 
 # GIT
 function gc { git commit -m "$@"; }

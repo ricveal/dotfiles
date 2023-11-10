@@ -97,7 +97,7 @@ ln -s "${HOME}/dotfiles/config/wezterm" "${HOME}/.config/wezterm"
 
 echo "configuring tmux"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-ln -s "${HOME}/dotfiles/.tmux.conf" "${HOME}/.tmux.conf"
+ln -s "${HOME}/dotfiles/config/tmux/tmux.conf" "${HOME}/.tmux.conf"
 
 echo "installing last Node.js LTS version"
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
