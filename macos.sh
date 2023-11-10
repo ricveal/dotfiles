@@ -71,7 +71,8 @@ ln -s "${HOME}/dotfiles/.gitignore_global" "${HOME}/.gitignore_global"
 ln -sF "${HOME}/dotfiles/scripts" "${HOME}/scripts"
 mkdir "${HOME}/.config"
 ln -s "${HOME}/dotfiles/karabiner.edn" "${HOME}/.config/karabiner.edn"
-ln -s "${HOME}/dotfiles/.curlrc" "${HOME}/.curlrc"
+ln -s "${HOME}/dotfiles/config/.curlrc" "${HOME}/.curlrc"
+ln -s "${HOME}/dotfiles/config/.ripgreprc" "${HOME}/.ripgreprc"
 
 echo "installing oh-my-zsh plugins"
 git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git \
