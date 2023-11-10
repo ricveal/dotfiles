@@ -1,6 +1,6 @@
 # https://www.justinjoyce.dev/git-tips-and-tricks/
 [includeIf "gitdir:~/code/"]
-  path = ~/dotfiles/.gitconfig_work
+  path = ~/dotfiles/work_variables/.gitconfig_work
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = /opt/homebrew/bin/nvim
@@ -9,7 +9,7 @@
 [difftool "default-difftool"]
   cmd = code --wait --diff $LOCAL $REMOTE
 [commit]
-	template = ~/.git_commit_template
+	template = ~/dotfiles/config/git/.git_commit_template
 [alias]
   news = log -p HEAD@{1}..HEAD@{0}
 	ahead-of-master = log --oneline origin/master..HEAD
