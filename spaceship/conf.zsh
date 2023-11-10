@@ -8,5 +8,5 @@ SPACESHIP_PACKAGE_PREFIX="-> "
 SPACESHIP_BATTERY_THRESHOLD=20
 
 # Other spaceship plugins
-source ~/dotfiles/spaceship/npmrc.plugin.zsh
+source $DOTFILES/spaceship/npmrc.plugin.zsh
 spaceship add npmrc

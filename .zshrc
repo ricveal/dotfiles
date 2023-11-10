@@ -1,8 +1,9 @@
+export DOTFILES=$HOME/dotfiles
 # Custom functions
-source ~/dotfiles/.functions
+source $DOTFILES/.functions
 
 # If you come from bash you might have to change your $PATH.
-export PATH="$HOME/bin:/usr/local/sbin:$HOME/dotfiles/bin:$HOME/.rd/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/sbin:$DOTFILES/bin:$HOME/.rd/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -117,10 +118,10 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
 
 # Aliases
-source ~/dotfiles/.alias
+source $DOTFILES/.alias
 
 # Private / secret stuff
-source ~/dotfiles/work_variables.zsh
+source $DOTFILES/work_variables.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -131,4 +132,4 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 export ASDF_DATA_DIR=$HOME/.asdf
 
 # Theme configuration -> Spaceship
-source ~/dotfiles/spaceship/conf.zsh
+source $DOTFILES/spaceship/conf.zsh
