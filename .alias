@@ -21,7 +21,7 @@ alias proxyon='sh ~/scripts/proxy_on.sh'
 alias proxyoff='sh ~/scripts/proxy_off.sh'
 alias getnpmrc='readlink ~/.npmrc | cut -d '/' -f 5'
 alias cpprogress='rsync -ah --progress '
-alias omz_update="omz update && cd "$ZSH_CUSTOM/custom/themes/spaceship" && git fetch -p && git pull && cd"
+alias omz_update="omz update && cd "$ZSH_CUSTOM/themes/spaceship" && git fetch -p && git pull && cd"
 
 # MAC
 alias python="python3"
