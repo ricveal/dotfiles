@@ -2,68 +2,68 @@
 [includeIf "gitdir:~/code/"]
   path = ~/dotfiles/work_variables/.gitconfig_work
 [core]
-	excludesfile = ~/.gitignore_global
-	editor = /opt/homebrew/bin/nvim
+  excludesfile = ~/.gitignore_global
+  editor = /opt/homebrew/bin/nvim
 [diff]
   tool = default-difftool
 [difftool "default-difftool"]
   cmd = code --wait --diff $LOCAL $REMOTE
 [commit]
-	template = ~/dotfiles/config/git/.git_commit_template
+  template = ~/dotfiles/config/git/.git_commit_template
 [alias]
   news = log -p HEAD@{1}..HEAD@{0}
-	ahead-of-master = log --oneline origin/master..HEAD
-	roots = log --all --oneline --decorate --max-parents=0
-	unpushed = log @{u}..
-	wip = rebase -i @{u}
-	changelog = log origin..HEAD --format='* %s%n%w(,4,4)%+b'
-	amend = commit --amend --no-edit
-	fixup = commit --amend --no-edit --allow-empty "$@"
-	feature = checkout -b feature/"$@"
-	hotfix = checkout -b hotfix/"$@"
-	release = checkout -b release/"$@"
-	dev = checkout develop
-	main = checkout master
-	cm = commit -m
-	co = checkout
-	st = status
-	br = branch
-	feap = fetch --all --prune
+  ahead-of-master = log --oneline origin/master..HEAD
+  roots = log --all --oneline --decorate --max-parents=0
+  unpushed = log @{u}..
+  wip = rebase -i @{u}
+  changelog = log origin..HEAD --format='* %s%n%w(,4,4)%+b'
+  amend = commit --amend --no-edit
+  fixup = commit --amend --no-edit --allow-empty "$@"
+  feature = checkout -b feature/"$@"
+  hotfix = checkout -b hotfix/"$@"
+  release = checkout -b release/"$@"
+  dev = checkout develop
+  main = checkout master
+  cm = commit -m
+  co = checkout
+  st = status
+  br = branch
+  feap = fetch --all --prune
   rc = rebase --continue
   ri = rebase -i --autostash
-	unstage = reset HEAD
-	trash = checkout -f
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	# git archive --format zip --output <output_path> <branch>
-	export = archive --format zip --output
-	enforce = push --force-with-lease
-	refresh = pull --rebase --autostash origin HEAD
-	cleanup-merged = "!f(){ git fetch && git branch --merged | grep -v '* ' | xargs git branch --delete; };f"
-	# Useful aliases: https://www.lazy-electron.com/2021/07/29/git-aliases.html
+  unstage = reset HEAD
+  trash = checkout -f
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  # git archive --format zip --output <output_path> <branch>
+  export = archive --format zip --output
+  enforce = push --force-with-lease
+  refresh = pull --rebase --autostash origin HEAD
+  cleanup-merged = "!f(){ git fetch && git branch --merged | grep -v '* ' | xargs git branch --delete; };f"
+  # Useful aliases: https://www.lazy-electron.com/2021/07/29/git-aliases.html
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [color]
-	diff = auto
-	status = auto
-	branch = auto
+  diff = auto
+  status = auto
+  branch = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [branch]
   autosetuprebase = always
 [push]
@@ -71,10 +71,12 @@
 [fetch]
   prune = true
 [http]
-	sslVerify = true
+  sslVerify = true
 [pull]
-	rebase = false
+  rebase = false
+[rerere]
+  enabled = true
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [gpg]
-	program = /opt/homebrew/bin/gpg
+  program = /opt/homebrew/bin/gpg
