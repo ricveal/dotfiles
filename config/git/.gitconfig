@@ -4,10 +4,20 @@
 [core]
   excludesfile = ~/.gitignore_global
   editor = /opt/homebrew/bin/nvim
+  pager = delta
+[iteractive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+	line-numbers = true
+	side-by-side = true
+  true-color = always
+  light = false
+[merge]
+  conflictstyle = zdiff3
 [diff]
-  tool = default-difftool
-[difftool "default-difftool"]
-  cmd = code --wait --diff $LOCAL $REMOTE
+  colorMoved = default
+  algorithm = histogram
 [commit]
   template = ~/dotfiles/config/git/.git_commit_template
 [alias]
