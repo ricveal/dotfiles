@@ -139,7 +139,6 @@ cask "iterm2"
 cask "karabiner-elements"
 cask "keka"
 cask "keyboard-maestro"
-cask "launchcontrol"
 cask "logi-options-plus"
 cask "logitech-camera-settings"
 cask "loom"
@@ -209,7 +208,6 @@ mas "Pages", id: 409201541
 mas "Refined GitHub", id: 1519867270
 mas "Shareful", id: 1522267256
 mas "The Unarchiver", id: 425424353
-mas "Toggl Track", id: 1291898086
 mas "Typist", id: 415166115
 mas "Userscripts-Mac-App", id: 1463298887
 mas "Velja", id: 1607635845
