@@ -67,6 +67,11 @@ setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 # do not store duplications
 setopt HIST_IGNORE_DUPS
+# Do not record an event starting with a space.
+setopt HIST_IGNORE_SPACE
+
+# Ignore these commands in history
+HISTORY_IGNORE="(ls|pwd|cd)*"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
