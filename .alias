@@ -25,10 +25,10 @@ alias omz_update="omz update && cd "$ZSH_CUSTOM/themes/spaceship" && git fetch -
 
 # MAC
 alias python="python3"
-alias brewupdate="brew update && brew upgrade && brew upgrade --cask && brew cleanup -s && brew doctor && brew missing && pip-update"
+alias brewupdate="brew update && brew upgrade && brew cu --all --yes --cleanup && mas upgrade && brew cleanup -s && brew doctor && brew missing && pip-update"
 alias hidedesk='defaults write com.apple.finder CreateDesktop -bool false; killall Finder;'
 alias showdesk='defaults write com.apple.finder CreateDesktop -bool true; killall Finder;'
-alias brewbck='rm -f $DOTFILES/Brewfile && brew bundle dump && mv Brewfile $DOTFILES/Brewfile'
+alias brewbck='brew bundle dump --force --describe --file="$DOTFILES/Brewfile"'
 
 # tmux aliases
 alias ta='tmux attach'
