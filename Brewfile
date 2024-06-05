@@ -1,6 +1,7 @@
 tap "ankitpokhrel/jira-cli"
 tap "azure/functions"
 tap "bbc/audiowaveform"
+tap "buo/cask-upgrade"
 tap "candid82/brew"
 tap "github/gh"
 tap "hashicorp/tap"
