@@ -127,6 +127,7 @@ source $DOTFILES/.alias
 
 # Private / secret stuff
 source $DOTFILES/work_variables.zsh
+source $DOTFILES/private_variables.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

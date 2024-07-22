@@ -1,5 +1,6 @@
 work_variables.zsh
 work_variables/*
+private_variables.zsh
 scripts/cloudflare.config.sh
 Brewfile.lock.json
 
