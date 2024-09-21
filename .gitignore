@@ -4,6 +4,9 @@ private_variables.zsh
 scripts/cloudflare.config.sh
 Brewfile.lock.json
 
+backup.sh
+backup_files.txt
+
 ### macOS ###
 # General
 .DS_Store
