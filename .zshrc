@@ -122,6 +122,10 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home"
 
+# GoLang
+export GOPATH=$HOME/golang
+export PATH=$PATH:$GOPATH/bin
+
 # Aliases
 source $DOTFILES/.alias
 
@@ -139,7 +143,3 @@ export ASDF_DATA_DIR=$HOME/.asdf
 
 # Theme configuration -> Spaceship
 source $DOTFILES/spaceship/conf.zsh
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/ricveal/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
