@@ -28,7 +28,7 @@ alias python="python3"
 alias brewupdate="brew update && brew upgrade && brew cu --yes --cleanup && mas upgrade && brew cleanup -s && brew doctor && brew missing && pip-update"
 alias hidedesk='defaults write com.apple.finder CreateDesktop -bool false; killall Finder;'
 alias showdesk='defaults write com.apple.finder CreateDesktop -bool true; killall Finder;'
-alias brewbck='brew bundle dump --force --file="$DOTFILES/Brewfile"'
+alias brewbck='brew bundle dump --force --file="$DOTFILES/Brewfile" && if test -f $DOTFILES/work_variables/brewbck.zsh; then zsh $DOTFILES/work_variables/brewbck.zsh; fi'
 
 # tmux aliases
 alias ta='tmux attach'
