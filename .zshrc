@@ -144,5 +144,8 @@ export ASDF_DATA_DIR=$HOME/.asdf
 # Theme configuration -> Spaceship
 source $DOTFILES/spaceship/conf.zsh
 
+# Opt-Out Telemetry
+FUNCTIONS_CORE_TOOLS_TELEMETRY_OPTOUT=true
+
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.cache/lm-studio/bin"
