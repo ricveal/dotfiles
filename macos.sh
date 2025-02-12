@@ -115,9 +115,9 @@ echo "reloading ZSH"
 source ~/.zshrc
 
 # Windows Manager Configuration
-echo "configuring yabai and skhd"
-ln -s "${HOME}/dotfiles/config/yabai" "${HOME}/.config/yabai"
-ln -s "${HOME}/dotfiles/config/skhd" "${HOME}/.config/skhd"
+echo "configuring aerospace"
+ln -s "${HOME}/dotfiles/config/aerospace" "${HOME}/.config/aerospace"
+defaults write com.apple.dock expose-group-apps -bool true && killall Dock
 
 echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
