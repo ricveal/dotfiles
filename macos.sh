@@ -94,6 +94,9 @@ ln -s "$ZSH_CUSTOM/themes/spaceship/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spa
 echo "configuring wezterm"
 ln -s "${HOME}/dotfiles/config/wezterm" "${HOME}/.config/wezterm"
 
+echo "configuring ghostty"
+ln -s "${HOME}/dotfiles/config/ghostty" "${HOME}/.config/ghostty"
+
 echo "configuring tmux"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -s "${HOME}/dotfiles/config/tmux/tmux.conf" "${HOME}/.tmux.conf"
@@ -104,6 +107,9 @@ asdf plugin-add direnv
 asdf direnv setup --shell zsh --version latest
 asdf install nodejs lts
 asdf global nodejs lts
+
+# Disable startup message in terminals
+touch "${HOME}/.hushlogin"
 
 echo "reloading ZSH"
 source ~/.zshrc
