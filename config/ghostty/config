@@ -1,4 +1,4 @@
-auto-update = false
+auto-update = off
 
 # Theme settings
 theme = dark:tokyionight,light:catppuccin-latte
