@@ -1,9 +1,47 @@
-theme = tokyonight
-font-family = "Fira Code"
-font-size = 14
-background-blur-radius = 20
-mouse-hide-while-typing = true
+auto-update = false
+
+# Theme settings
+theme = dark:tokyionight,light:catppuccin-latte
+bold-is-bright = true
+macos-titlebar-style = hidden
+
+# window settings
 window-decoration = true
-# keybind = global:cmd+/=toggle_quick_terminal
-# macos-option-as-alt = true
-background-opacity = 0.9
+window-theme = auto
+window-padding-color = background
+window-padding-x = 8
+window-colorspace = "display-p3"
+cursor-invert-fg-bg = true
+
+shell-integration-features = cursor, sudo, title
+
+copy-on-select = clipboard
+confirm-close-surface = false
+
+# Mouse settings
+mouse-hide-while-typing = true
+
+# Font settings
+font-family = "Monaspace Neon Regular"
+font-family-italic = "Monaspace Radon Var Regular Italic"
+font-family-bold-italic = "Monaspace Radon Var Bold Italic"
+font-size = 16
+font-feature = +liga
+cursor-style = block
+
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+
+# Split keybindings
+# These are similar to tmux, but with the prefix being cmd+s
+keybind = cmd+s>period=new_split:right
+keybind = cmd+s>-=new_split:down
+
+keybind = cmd+s>ctrl+l=next_tab
+keybind = cmd+s>ctrl+h=previous_tab
+
+keybind = cmd+s>j=goto_split:bottom
+keybind = cmd+s>k=goto_split:top
+keybind = cmd+s>h=goto_split:left
+keybind = cmd+s>l=goto_split:right
