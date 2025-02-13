@@ -9,9 +9,7 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = [
-  'exec-and-forget borders'
-]
+after-startup-command = ['exec-and-forget borders']
 
 # Start AeroSpace at login
 start-at-login = true
@@ -53,12 +51,12 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 # Allow for more space on smaller screens
-inner.horizontal = [ { monitor."Built-in Retina Display" = 10 }, 15  ]
-inner.vertical =   [ { monitor."Built-in Retina Display" = 10 }, 15  ]
-outer.left =       [ { monitor."Built-in Retina Display" = 5 }, 25  ]
-outer.bottom =     [ { monitor."Built-in Retina Display" = 5 }, 25  ]
-outer.top =        [ { monitor."Built-in Retina Display" = 5 }, 25  ]
-outer.right =      [ { monitor."Built-in Retina Display" = 5 }, 25  ]
+inner.horizontal = [{ monitor."Built-in Retina Display" = 10 }, 15]
+inner.vertical = [{ monitor."Built-in Retina Display" = 10 }, 15]
+outer.left = [{ monitor."Built-in Retina Display" = 5 }, 25]
+outer.bottom = [{ monitor."Built-in Retina Display" = 5 }, 25]
+outer.top = [{ monitor."Built-in Retina Display" = 5 }, 25]
+outer.right = [{ monitor."Built-in Retina Display" = 5 }, 25]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -114,23 +112,25 @@ alt-shift-equal = 'resize smart +100'
 ctrl-alt-1 = 'workspace 1'
 ctrl-alt-2 = 'workspace 2'
 ctrl-alt-3 = 'workspace 3'
-ctrl-alt-b = 'workspace B' # Browsers
-ctrl-alt-c = 'workspace C' # Chat apps
-ctrl-alt-d = 'workspace D' # Development
-ctrl-alt-m = 'workspace M' # Media
-ctrl-alt-n = 'workspace N' # Notes
-ctrl-alt-p = 'workspace P' # Productivity
+ctrl-alt-b = 'workspace Browsers'     # Browsers
+ctrl-alt-c = 'workspace Chat'         # Chat apps
+ctrl-alt-d = 'workspace Development'  # Development
+ctrl-alt-m = 'workspace Media'        # Media
+ctrl-alt-n = 'workspace Notes'        # Notes
+ctrl-alt-p = 'workspace Productivity' # Productivity
+ctrl-alt-w = 'workspace Work'         # Productivity
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
 alt-shift-2 = 'move-node-to-workspace 2'
 alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-b = 'move-node-to-workspace B'
-alt-shift-c = 'move-node-to-workspace C'
-alt-shift-d = 'move-node-to-workspace D'
-alt-shift-m = 'move-node-to-workspace M'
-alt-shift-n = 'move-node-to-workspace N'
-alt-shift-p = 'move-node-to-workspace P'
+alt-shift-b = 'move-node-to-workspace Browsers'
+alt-shift-c = 'move-node-to-workspace Chat'
+alt-shift-d = 'move-node-to-workspace Development'
+alt-shift-m = 'move-node-to-workspace Media'
+alt-shift-n = 'move-node-to-workspace Notes'
+alt-shift-p = 'move-node-to-workspace Productivity'
+alt-shift-w = 'move-node-to-workspace Work'
 
 alt-shift-f = 'fullscreen'
 
@@ -152,7 +152,10 @@ M = ['secondary', 'main']
 [mode.service.binding]
 esc = ['reload-config', 'mode main']
 r = ['flatten-workspace-tree', 'mode main'] # reset layout
-f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+f = [
+  'layout floating tiling',
+  'mode main',
+] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 q = ['enable toggle'] # Disable window management
 
@@ -169,74 +172,85 @@ alt-shift-l = ['join-with right', 'mode main']
 ## Chat apps
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.teams2' #Teams
-run = "move-node-to-workspace C"
+if.app-id = 'com.microsoft.teams2'  #Teams
+run = "move-node-to-workspace Chat"
 
 ## Code apps
 
 [[on-window-detected]]
 if.app-id = 'com.github.wez.wezterm'
-run = 'move-node-to-workspace D'
+run = 'move-node-to-workspace Development'
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace D'
+run = 'move-node-to-workspace Development'
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace D'
+run = 'move-node-to-workspace Development'
 
 ## Browsers
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run = 'move-node-to-workspace B'
+run = 'move-node-to-workspace Browsers'
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace B'
-
-## Notes
-
-[[on-window-detected]]
-if.app-id = 'com.apple.iCal'
-run = 'move-node-to-workspace N'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.reminders' #Reminders
-run = "move-node-to-workspace N"
-
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace N'
+run = 'move-node-to-workspace Browsers'
 
 ## Productivity
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.Powerpoint' #PowerPoint
-run = "move-node-to-workspace P"
+if.app-id = 'com.microsoft.Outlook'         #Outlook
+run = "move-node-to-workspace Productivity"
 
 [[on-window-detected]]
-if.app-id = 'comd.microsoft.Word' #Word
-run = "move-node-to-workspace P"
+if.app-id = 'com.apple.iCal'
+run = 'move-node-to-workspace Productivity'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.reminders'           #Reminders
+run = "move-node-to-workspace Productivity"
+
+## Notes
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace Notes'
+
+[[on-window-detected]]
+if.app-id = 'com.reederapp.5.macOS'
+run = 'move-node-to-workspace Notes'
+
+## Work
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Excel'   #Excel
+run = "move-node-to-workspace Work"
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Powerpoint' #PowerPoint
+run = "move-node-to-workspace Work"
+
+[[on-window-detected]]
+if.app-id = 'comd.microsoft.flatten-workspace-tree' #Word
+run = "move-node-to-workspace Work"
 
 ## Media
+
 [[on-window-detected]]
-if.app-id = 'com.spotify.client' #Spotify
-run = "move-node-to-workspace M"
+if.app-id = 'com.spotify.client'     #Spotify
+run = "move-node-to-workspace Media"
 
 ## Floaters
-
-[[on-window-detected]]
-if.app-id = 'ch.protonvpn.mac'
-run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder' #Finder
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'com.raycast.macos' #Raycast
+if.app-id = 'com.runningwithcrayons.Alfred-Preferences' #Alfred-Preferences
 run = 'layout floating'
 
 [[on-window-detected]]
@@ -248,13 +262,5 @@ if.app-id = 'com.1password.1password'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.FaceTime'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.ScreenContinuity'
-run = 'layout floating'
-
-[[on-window-detected]]
-if.app-id = 'com.rogueamoeba.audiohijack'
+if.app-id = 'com.openai.chat'
 run = 'layout floating'
