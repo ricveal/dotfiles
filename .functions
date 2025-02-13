@@ -38,6 +38,10 @@ function extract() {
   fi
 }
 
+function appid() {
+  osascript -e "id of app \"$1\""
+}
+
 # CheatSheet
 cht() { curl cht.sh/$1 }
 
