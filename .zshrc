@@ -137,9 +137,10 @@ source $DOTFILES/private_variables.zsh
 
 eval "$(zoxide init zsh)"
 
-# Adding asdf-direnv (version manager)
+# asdf configuration (version manager)
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 export ASDF_DATA_DIR=$HOME/.asdf
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # Theme configuration -> Spaceship
 source $DOTFILES/spaceship/conf.zsh
