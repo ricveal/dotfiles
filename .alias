@@ -77,7 +77,7 @@ alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 alias findprocess="ps -ax | grep -i"
 alias sign="sudo xattr -r -d com.apple.quarantine"
 alias daily="weather && echo "" && cal"
-alias tf="terraform"
+alias tf="tofu"
 
 # Karabiner
 alias karabinerLoad='launchctl load /Library/LaunchAgents/org.pqrs.karabiner.karabiner_console_user_server.plist; \
