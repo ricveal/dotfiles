@@ -264,3 +264,8 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
 run = 'layout floating'
+
+## Fallback: by default, open it on worksapce 1
+
+[[on-window-detected]]
+run = "move-node-to-workspace 1"
