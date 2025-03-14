@@ -145,7 +145,7 @@ alt-shift-semicolon = 'mode service'
 # Note: this is extremely inflexible, locking specific workspaces to specific monitors.
 [workspace-to-monitor-force-assignment]
 # D = 'main'
-M = ['secondary', 'main']
+Media = ['secondary', 'main']
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
