@@ -42,6 +42,13 @@ function appid() {
   osascript -e "id of app \"$1\""
 }
 
+function update-spotify() {
+  brew uninstall --cask spotify
+  brew cleanup
+  launchctl remove com.spotify.client.startuphelper
+  brew install --cask spotify
+}
+
 # CheatSheet
 cht() { curl cht.sh/$1 }
 
