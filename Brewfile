@@ -202,7 +202,7 @@ mas "GarageBand", id: 682658836
 mas "Grammarly for Safari", id: 1462114288
 mas "Hand Mirror", id: 1502839586
 mas "Home Assistant", id: 1099568401
-mas "Ice Cubes", id: 6444915884
+mas "IceCubesApp", id: 6444915884
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "MindNode", id: 1289197285
@@ -213,7 +213,7 @@ mas "Refined GitHub", id: 1519867270
 mas "Shareful", id: 1522267256
 mas "The Unarchiver", id: 425424353
 mas "Typist", id: 415166115
-mas "Userscripts-Mac-App", id: 1463298887
+mas "Userscripts", id: 1463298887
 mas "Velja", id: 1607635845
 mas "WireGuard", id: 1451685025
 mas "Xcode", id: 497799835
