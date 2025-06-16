@@ -118,6 +118,8 @@ cask "blender"
 cask "calibre"
 cask "canon-eos-utility"
 cask "chatgpt"
+cask "claude"
+cask "cursor"
 cask "darktable"
 cask "dash"
 cask "dbeaver-community"
@@ -208,6 +210,7 @@ mas "MindNode", id: 1289197285
 mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Perplexity", id: 6714467650
 mas "Refined GitHub", id: 1519867270
 mas "Shareful", id: 1522267256
 mas "The Unarchiver", id: 425424353
