@@ -209,6 +209,7 @@ mas "Keynote", id: 409183694
 mas "MindNode", id: 1289197285
 mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
+mas "Obsidian Web Clipper", id: 6720708363
 mas "Pages", id: 409201541
 mas "Perplexity", id: 6714467650
 mas "Refined GitHub", id: 1519867270
