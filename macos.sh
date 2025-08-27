@@ -960,9 +960,8 @@ printf "There are some extra thing to do:\n\
   - Deckset \n\
   - Transmit \n\
   - OnScreen Control (LG) \n\
-  - Logi Capture \n\
+  - Obsbot Center \n\
   - Reeder \n\
-  - Log Tail \n\
   - Pulse Secure \n\
 - Restart Terminal.app\n\
 - Copy git config from your backup/re-login \n\
