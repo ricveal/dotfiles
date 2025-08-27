@@ -6,11 +6,11 @@ tap "koekeishiya/formulae"
 tap "mczachurski/wallpapper"
 tap "nikitabobko/tap"
 brew "act"
-brew "python@3.12"
 brew "asciinema"
 brew "git"
 brew "asdf"
 brew "aspell"
+brew "python@3.12"
 brew "azure-cli"
 brew "bash"
 brew "bat"
@@ -117,14 +117,11 @@ cask "betterdisplay"
 cask "blender"
 cask "calibre"
 cask "canon-eos-utility"
-cask "chatgpt"
-cask "claude"
 cask "cursor"
 cask "darktable"
 cask "dash"
 cask "dbeaver-community"
 cask "diffusionbee"
-cask "discord"
 cask "drawio"
 cask "elgato-control-center"
 cask "farrago"
@@ -164,7 +161,6 @@ cask "microsoft-auto-update"
 cask "microsoft-office"
 cask "microsoft-teams"
 cask "mkvtoolnix-app"
-cask "moonlight"
 cask "mqttx"
 cask "obs"
 cask "obsbot-center"
@@ -176,7 +172,6 @@ cask "projectlibre"
 cask "rode-central"
 cask "slack"
 cask "spotify"
-cask "steam"
 cask "streamlabs"
 cask "stretchly"
 cask "sublime-text"
@@ -184,7 +179,6 @@ cask "suspicious-package"
 cask "tdr-kotelnikov"
 cask "tdr-nova"
 cask "temurin"
-cask "thunderbird"
 cask "tunnelblick"
 cask "ukelele"
 cask "visual-studio-code"
@@ -203,7 +197,6 @@ mas "GarageBand", id: 682658836
 mas "Grammarly for Safari", id: 1462114288
 mas "Hand Mirror", id: 1502839586
 mas "Home Assistant", id: 1099568401
-mas "IceCubesApp", id: 6444915884
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "MindNode", id: 1289197285
@@ -211,7 +204,6 @@ mas "Next Meeting", id: 1017470484
 mas "Numbers", id: 409203825
 mas "Obsidian Web Clipper", id: 6720708363
 mas "Pages", id: 409201541
-mas "Perplexity", id: 6714467650
 mas "Refined GitHub", id: 1519867270
 mas "Shareful", id: 1522267256
 mas "The Unarchiver", id: 425424353
