@@ -951,18 +951,12 @@ echo "Done. Note that some of these changes require a logout/restart to take eff
 
 printf "There are some extra thing to do:\n\
 - Manually install these apps: \n\
-  - Adobe Illustrator \n\
-  - Adobe Photoshop \n\
-  - Adobe Lightroom \n\
   - Microsoft Office \n\
   - AutoFirma \n\
   - Configurador FNMT \n\
-  - Deckset \n\
-  - Transmit \n\
-  - OnScreen Control (LG) \n\
+  - Choose between Transmit and Cyberduck \n\
   - Obsbot Center \n\
-  - Reeder \n\
-  - Pulse Secure \n\
+  - Choose between Reeder and NetNewsWire \n\
 - Restart Terminal.app\n\
 - Copy git config from your backup/re-login \n\
 - Copy .npmrc from your backup/re-login \n\
