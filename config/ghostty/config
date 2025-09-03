@@ -1,4 +1,5 @@
 auto-update = off
+macos-option-as-alt = left
 
 # Theme settings
 theme = dark:tokyionight,light:catppuccin-latte
