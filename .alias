@@ -24,6 +24,12 @@ alias cpprogress='rsync -ah --progress '
 alias omz_update="omz update && cd "$ZSH_CUSTOM/themes/spaceship" && git fetch -p && git pull && cd"
 alias reload='source ~/.zshrc'
 
+alias ide='tmux new-session -c "$PWD" \; \
+  split-window -h -p 30 \; \
+  split-window -v -p 50 \; \
+  select-pane -t 1 \; \
+  send-keys "nvim ." C-m'
+
 # MAC
 alias python="python3"
 alias update="brew update && brew upgrade && brew cu --all --yes --cleanup && mas upgrade && brew cleanup -s && brew doctor && brew missing && pip-update"
