@@ -1,6 +1,4 @@
 # https://www.justinjoyce.dev/git-tips-and-tricks/
-[includeIf "gitdir:~/code/"]
-  path = ~/dotfiles/work_variables/.gitconfig_work
 [core]
   excludesfile = ~/.gitignore_global
   editor = /opt/homebrew/bin/nvim
@@ -90,3 +88,5 @@
   defaultBranch = main
 [gpg]
   program = /opt/homebrew/bin/gpg
+[includeIf "gitdir:~/code/"]
+  path = ~/dotfiles/work_variables/.gitconfig_work
