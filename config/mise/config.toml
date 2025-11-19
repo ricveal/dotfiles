@@ -1,0 +1,6 @@
+[tools]
+java = "lts"
+node = "lts"
+
+[settings]
+experimental = true

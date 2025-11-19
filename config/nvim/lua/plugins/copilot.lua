@@ -1,4 +1,4 @@
-local NODE_BIN = os.getenv("ASDF_DATA_DIR") .. "/installs/nodejs/22.18.0/bin/node"
+local NODE_BIN = os.getenv("HOME") .. "/.local/share/mise/installs/node/24.11.1/bin/node"
 
 return {
   "zbirenbaum/copilot.lua",
