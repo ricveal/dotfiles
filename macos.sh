@@ -32,10 +32,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 echo "Generating an RSA token for GitHub"
 mkdir -p ~/.ssh
 touch ~/.ssh/config
-ssh-keygen -t rsa -b 4096
+ssh-keygen -t ed25519
 ${echo "Host *\n AddKeysToAgent yes\n UseKeychain yes\n IdentityFile ~/.ssh/id_rsa" | tee ~/.ssh/config}
 eval "$(ssh-agent -s)"
-echo "run 'pbcopy < ~/.ssh/id_rsa.pub' and paste that into GitHub. Then press <ENTER>"
+echo "run 'pbcopy < ~/.ssh/id_ed25519.pub' and paste that into GitHub. Then press <ENTER>"
 read wait
 
 echo "cloning dotfiles"
@@ -69,7 +69,6 @@ ln -s "${HOME}/dotfiles/config/git/.gitconfig" "${HOME}/.gitconfig"
 ln -s "${HOME}/dotfiles/config/git/.gitignore_global" "${HOME}/.gitignore_global"
 ln -sF "${HOME}/dotfiles/scripts" "${HOME}/scripts"
 mkdir "${HOME}/.config"
-ln -s "${HOME}/dotfiles/config/karabiner.edn" "${HOME}/.config/karabiner.edn"
 ln -s "${HOME}/dotfiles/config/.curlrc" "${HOME}/.curlrc"
 ln -s "${HOME}/dotfiles/config/.ripgreprc" "${HOME}/.ripgreprc"
 
@@ -101,12 +100,9 @@ echo "configuring tmux"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -s "${HOME}/dotfiles/config/tmux/tmux.conf" "${HOME}/.tmux.conf"
 
-echo "installing last Node.js LTS version"
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf plugin-add direnv
-asdf direnv setup --shell zsh --version latest
-asdf install nodejs lts
-asdf global nodejs lts
+echo "installing mise and dev envs"
+ln -s "${HOME}/dotfiles/config/mise" "${HOME}/.config/mise"
+mise install
 
 # Disable startup message in terminals
 touch "${HOME}/.hushlogin"
@@ -115,24 +111,16 @@ echo "reloading ZSH"
 source ~/.zshrc
 
 # Windows Manager Configuration
-echo "configuring aerospace"
-ln -s "${HOME}/dotfiles/config/aerospace" "${HOME}/.config/aerospace"
-defaults write com.apple.dock expose-group-apps -bool true && killall Dock
-
 echo "node --version: $(node --version)"
 echo "npm --version: $(npm --version)"
 
 echo "installing a few global npm packages"
-yarn global add npmrc gatsby serve diff-so-fancy fkill-cli semantic-release-cli \
-npm-check-updates yo @vue/cli create-react-app @angular/cli npkill fastify-cli
+yarn global add npmrc serve diff-so-fancy fkill-cli semantic-release-cli \
+npm-check-updates @vue/cli create-react-app @angular/cli npkill fastify-cli
 
 npmrc
 echo "\nPlease, setup additional .npmrc's if needed. Check documentation:"
 echo "https://www.npmjs.com/package/npmrc" 
-
-echo "configuring karabiner-elements"
-echo '{"profiles" : [ {"name" : "Default", "selected" : true } ]}' > ~/.config/karabiner/karabiner.json
-brew services start goku
 
 echo "starting VIM configuration..."
 pip install neovim
@@ -149,6 +137,18 @@ gh extension install davidraviv/gh-clean-branches
 gh extension install kawarimidoll/gh-graph
 
 echo "making system modifications:"
+
+echo "configuring aerospace"
+ln -s "${HOME}/dotfiles/config/aerospace" "${HOME}/.config/aerospace"
+defaults write com.apple.dock expose-group-apps -bool true && killall Dock
+
+# karabiner Elements
+echo "configuring karabiner-elements"
+ln -s "${HOME}/dotfiles/config/karabiner.edn" "${HOME}/.config/karabiner.edn"
+echo '{"profiles" : [ {"name" : "Default", "selected" : true } ]}' > ~/.config/karabiner/karabiner.json
+brew services start goku
+
+source "${HOME}/dotfiles/wallpaper.sh"
 
 # Make Chrome Two finger swipe for back and forward
 defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool TRUE

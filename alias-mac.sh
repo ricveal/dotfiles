@@ -1,0 +1,24 @@
+# MAC
+alias python="python3"
+alias update="brew update && brew upgrade && brew cu --all --yes --cleanup && mas upgrade && brew cleanup -s && brew doctor && brew missing"
+alias hidedesk='defaults write com.apple.finder CreateDesktop -bool false; killall Finder;'
+alias showdesk='defaults write com.apple.finder CreateDesktop -bool true; killall Finder;'
+alias brewbck='brew bundle dump --force --file="$DOTFILES/Brewfile" && if test -f $DOTFILES/work_variables/brewbck.zsh; then zsh $DOTFILES/work_variables/brewbck.zsh; fi'
+alias cpkeyboard='() { cp $1 "$HOME/Library/Keyboard Layouts" }'
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias flushdns="sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
+alias sign="sudo xattr -r -d com.apple.quarantine"
+
+## Karabiner
+alias karabinerLoad='launchctl load /Library/LaunchAgents/org.pqrs.karabiner.karabiner_console_user_server.plist; \
+sudo launchctl load /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_grabber.plist; \
+sudo launchctl load /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_observer.plist;'
+alias karabinerUnload='launchctl unload /Library/LaunchAgents/org.pqrs.karabiner.karabiner_console_user_server.plist; \
+sudo launchctl unload /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_grabber.plist; \
+sudo launchctl unload /Library/LaunchDaemons/org.pqrs.karabiner.karabiner_observer.plist; \
+sudo killall karabiner_grabber; \
+sudo killall karabiner_console_user_server; \
+sudo killall Karabiner-Menu; \
+sudo killall Karabiner-Elements'
+

@@ -90,7 +90,7 @@ HIST_STAMPS="dd/mm/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git node macos python extract asdf poetry fast-syntax-highlighting zsh-autosuggestions zsh-completions git-extra-commands zsh-history-substring-search
+  git node macos python extract poetry fast-syntax-highlighting zsh-autosuggestions zsh-completions git-extra-commands zsh-history-substring-search
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -137,10 +137,8 @@ source $DOTFILES/private_variables.zsh
 
 eval "$(zoxide init zsh)"
 
-# asdf configuration (version manager)
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
-export ASDF_DATA_DIR=$HOME/.asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# Configuration of mise
+eval "$(mise activate zsh)"
 
 # Theme configuration -> Spaceship
 source $DOTFILES/spaceship/conf.zsh

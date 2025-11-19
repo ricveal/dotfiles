@@ -38,17 +38,6 @@ function extract() {
   fi
 }
 
-function appid() {
-  osascript -e "id of app \"$1\""
-}
-
-function update-spotify() {
-  brew uninstall --cask spotify
-  brew cleanup
-  launchctl remove com.spotify.client.startuphelper
-  brew install --cask spotify
-}
-
 # CheatSheet
 cht() { curl cht.sh/$1 }
 
@@ -71,29 +60,11 @@ function qr { curl qrcode.show/$@; }
 function fbmovie { filebot -rename -r ./$@ --file-filter f.video --db TheMovieDB --format {ny}/{ny}{' CD'+pi}{subt} --output /Volumes/Movies; }
 function fbserie { filebot -rename -r ./$@ --file-filter f.video --db TheTVDB --format "{n}/{'Season '+s}/{s00e00} - {t}" --output /Volumes/Series; }
 
-
-### Functions for setting and getting environment variables from the OSX keychain ###
-### Adapted from https://www.netmeister.org/blog/keychain-passwords.html ###
-
-# Use: keychain-environment-variable SECRET_ENV_VAR
-function keychain-environment-variable () {
-    security find-generic-password -w -a ${USER} -D "environment variable" -s "${1}"
-}
-
-# Use: set-keychain-environment-variable SECRET_ENV_VAR
-#   provide: super_secret_key_abc123
-function set-keychain-environment-variable () {
-    [ -n "$1" ] || print "Missing environment variable name"
-
-    # Note: if using bash, use `-p` to indicate a prompt string, rather than the leading `?`
-    read -s "?Enter Value for ${1}: " secret
-
-    ( [ -n "$1" ] && [ -n "$secret" ] ) || return 1
-    security add-generic-password -U -a ${USER} -D "environment variable" -s "${1}" -w "${secret}"
-}
-
 ### Update ZSH theme
 function zsh-update-theme () {
     git -C $ZSH_CUSTOM/themes/$ZSH_THEME fetch -p
     git -C $ZSH_CUSTOM/themes/$ZSH_THEME pull
 }
+
+#Mac
+if [[ "$OSTYPE" == "darwin"* ]]; then source $DOTFILES/functions-mac.sh; fi
