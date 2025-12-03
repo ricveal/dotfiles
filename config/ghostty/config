@@ -2,7 +2,7 @@ auto-update = off
 macos-option-as-alt = left
 
 # Theme settings
-theme = dark:tokyionight,light:catppuccin-latte
+theme = dark:TokyoNight,light:Catppuccin Latte
 bold-is-bright = true
 macos-titlebar-style = hidden
 
