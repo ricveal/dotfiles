@@ -7,7 +7,7 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 CopilotEnabled = false
-require("config.work")
+pcall(require, "config.work")
 
 require("lazy").setup({
   spec = {
