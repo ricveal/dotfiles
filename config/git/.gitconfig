@@ -17,7 +17,7 @@
 [core]
   editor = nvim
   pager = delta
-  excludesfile = ~/.gitignore_global
+  excludesfile = ~/dotfiles/config/git/.gitignore_global
 
 # ─────────────────────────────────────────────
 # Workflow strategy (rebase-first)
