@@ -15,8 +15,8 @@
   defaultBranch = main
 
 [core]
-  editor = nvim || vim || vi
-  pager = delta || less
+  editor = nvim
+  pager = delta
   excludesfile = ~/.gitignore_global
 
 # ─────────────────────────────────────────────
