@@ -67,4 +67,4 @@ function zsh-update-theme () {
 }
 
 #Mac
-if [[ "$OSTYPE" == "darwin"* ]]; then source $DOTFILES/functions-mac.sh; fi
+if [[ "$OSTYPE" == "darwin"* ]]; then source $DOTFILES/config/bash/macos/functions; fi

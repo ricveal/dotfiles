@@ -1,8 +1,5 @@
 # Modern Unix Commands
 # https://github.com/ibraheemdev/modern-unix
-alias cat=/opt/homebrew/bin/bat
-alias ls=/opt/homebrew/bin/lsd
-
 alias l='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
@@ -74,4 +71,4 @@ alias daily="weather && echo "" && cal"
 alias tf="tofu"
 
 # MAC
-if [[ "$OSTYPE" == "darwin"* ]]; then source $DOTFILES/alias-mac.sh; fi
+if [[ "$OSTYPE" == "darwin"* ]]; then source $DOTFILES/config/bash/macos/aliases; fi

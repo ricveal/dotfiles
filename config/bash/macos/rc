@@ -1,6 +1,6 @@
 export DOTFILES=$HOME/dotfiles
 # Custom functions
-source $DOTFILES/.functions
+source $DOTFILES/config/bash/functions
 
 # If you come from bash you might have to change your $PATH.
 export PATH="$HOME/bin:/usr/local/sbin:$DOTFILES/bin:$HOME/.rd/bin:$PATH"
@@ -127,11 +127,11 @@ export GOPATH=$HOME/golang
 export PATH=$PATH:$GOPATH/bin
 
 # Aliases
-source $DOTFILES/.alias
+source $DOTFILES/config/bash/aliases
 
 # Private / secret stuff
-source $DOTFILES/work_variables.zsh
-source $DOTFILES/private_variables.zsh
+[ -f $DOTFILES/config/work_variables.zsh ] && source $DOTFILES/config/work_variables.zsh
+[ -f $DOTFILES/config/private_variables.zsh ] && source $DOTFILES/config/private_variables.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

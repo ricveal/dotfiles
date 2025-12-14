@@ -64,7 +64,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 echo "making configuration symbolic references to dotfiles"
 rm -rf "${HOME}/.zshrc"
-ln -s "${HOME}/dotfiles/.zshrc" "${HOME}/.zshrc"
+ln -s "${HOME}/dotfiles/config/bash/macos/rc" "${HOME}/.zshrc"
 ln -s "${HOME}/dotfiles/config/git/.gitconfig" "${HOME}/.gitconfig"
 ln -s "${HOME}/dotfiles/config/git/.gitignore_global" "${HOME}/.gitignore_global"
 ln -sF "${HOME}/dotfiles/scripts" "${HOME}/scripts"

@@ -1,0 +1,18 @@
+export DOTFILES=$HOME/dotfiles
+
+# Custom functions
+source $DOTFILES/config/bash/functions
+# Custom aliases
+source $DOTFILES/config/bash/aliases
+
+HIST_STAMPS="dd/mm/yyyy"
+
+plugins=(
+  git node python extract fast-syntax-highlighting zsh-autosuggestions zsh-completions git-extra-commands zsh-history-substring-search
+)
+
+export LANG=es_ES.UTF-8
+
+# Private / secret stuff
+[ -f $DOTFILES/config/work_variables.zsh ] && source $DOTFILES/config/work_variables.zsh
+[ -f $DOTFILES/config/private_variables.zsh ] && source $DOTFILES/config/private_variables.zsh

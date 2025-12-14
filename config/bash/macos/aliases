@@ -1,4 +1,7 @@
 # MAC
+alias cat=/opt/homebrew/bin/bat
+alias ls=/opt/homebrew/bin/lsd
+
 alias python="python3"
 alias update="brew update && brew upgrade && brew cu --all --yes --cleanup && mas upgrade && brew cleanup -s && brew doctor && brew missing"
 alias hidedesk='defaults write com.apple.finder CreateDesktop -bool false; killall Finder;'
