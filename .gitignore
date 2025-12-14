@@ -3,6 +3,7 @@ work_variables/*
 private_variables.zsh
 scripts/cloudflare.config.sh
 Brewfile.lock.json
+config/git/.gitconfig_local
 
 backup.sh
 backup_files.txt

@@ -1,92 +1,176 @@
-# https://www.justinjoyce.dev/git-tips-and-tricks/
+# Inspired by https://www.justinjoyce.dev/git-tips-and-tricks/
+# Useful aliases: https://www.lazy-electron.com/2021/07/29/git-aliases.html
+# Adapted to a rebase-first workflow
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = ssh-keygen
+
+# ─────────────────────────────────────────────
+# Repository defaults
+# ─────────────────────────────────────────────
+[init]
+  defaultBranch = main
+
 [core]
+  editor = nvim || vim || vi
+  pager = delta || less
   excludesfile = ~/.gitignore_global
-  editor = /opt/homebrew/bin/nvim
-  pager = delta
-[iteractive]
-  diffFilter = delta --color-only
-[delta]
-  navigate = true
-	line-numbers = true
-	side-by-side = true
-  true-color = always
-  light = false
+
+# ─────────────────────────────────────────────
+# Workflow strategy (rebase-first)
+# ─────────────────────────────────────────────
+[pull]
+  rebase = true
+
+[rebase]
+  autoStash = true
+
+[branch]
+  autosetuprebase = always
+
 [merge]
   conflictstyle = zdiff3
+  ff = only
+
+[push]
+  default = current
+
+[fetch]
+  prune = true
+
+[rerere]
+  enabled = true
+
+# ─────────────────────────────────────────────
+# Diff & merge UX
+# ─────────────────────────────────────────────
 [diff]
-  colorMoved = default
   algorithm = histogram
-[commit]
-  template = ~/dotfiles/config/git/.git_commit_template
-[alias]
-  news = log -p HEAD@{1}..HEAD@{0}
-  ahead-of-master = log --oneline origin/master..HEAD
-  roots = log --all --oneline --decorate --max-parents=0
-  unpushed = log @{u}..
-  wip = rebase -i @{u}
-  changelog = log origin..HEAD --format='* %s%n%w(,4,4)%+b'
-  amend = commit --amend --no-edit
-  fixup = commit --amend --no-edit --allow-empty "$@"
-  feature = checkout -b feature/"$@"
-  hotfix = checkout -b hotfix/"$@"
-  release = checkout -b release/"$@"
-  dev = checkout develop
-  main = checkout master
-  cm = commit -m
-  co = checkout
-  st = status
-  br = branch
-  feap = fetch --all --prune
-  rc = rebase --continue
-  ri = rebase -i --autostash
-  unstage = reset HEAD
-  trash = checkout -f
-  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-  # git archive --format zip --output <output_path> <branch>
-  export = archive --format zip --output
-  enforce = push --force-with-lease
-  refresh = pull --rebase --autostash origin HEAD
-  cleanup-merged = "!f(){ git fetch && git branch --merged | grep -v '* ' | xargs git branch --delete; };f"
-  # Useful aliases: https://www.lazy-electron.com/2021/07/29/git-aliases.html
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
+  colorMoved = default
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+  line-numbers = true
+  side-by-side = true
+  true-color = always
+  light = false
+
+[apply]
+  whitespace = nowarn
+
+# ─────────────────────────────────────────────
+# Colors
+# ─────────────────────────────────────────────
 [color]
   diff = auto
   status = auto
   branch = auto
+
 [color "branch"]
   current = yellow reverse
   local = yellow
   remote = green
+
 [color "diff"]
   meta = yellow bold
   frag = magenta bold
   old = red bold
   new = green bold
+
 [color "status"]
   added = yellow
   changed = green
   untracked = cyan
-[apply]
-  whitespace = nowarn
-[branch]
-  autosetuprebase = always
-[push]
-  default = current
-[fetch]
-  prune = true
+
+# ─────────────────────────────────────────────
+# Commits
+# ─────────────────────────────────────────────
+[commit]
+  template = ~/dotfiles/config/git/.git_commit_template
+  gpgsign = true
+
+# ─────────────────────────────────────────────
+# Aliases
+# ─────────────────────────────────────────────
+[alias]
+  # inspection
+  st = status
+  br = branch
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  roots = log --all --oneline --decorate --max-parents=0
+  news = log -p HEAD@{1}..HEAD@{0}
+  unpushed = log @{u}..
+  ahead-of-master = log --oneline origin/master..HEAD
+
+  # commits
+  cm = commit -m
+  amend = commit --amend --no-edit
+
+  # branches
+  co = checkout
+  main = checkout main
+  dev = checkout develop
+  feature = checkout -b feature/"$@"
+  hotfix = checkout -b hotfix/"$@"
+  release = checkout -b release/"$@"
+
+  # rebase
+  ri = rebase -i --autostash
+  rc = rebase --continue
+  wip = rebase -i @{u}
+
+  # working tree
+  unstage = reset HEAD
+  trash = checkout -f
+
+  # sync
+  feap = fetch --all --prune
+  refresh = pull --rebase --autostash origin HEAD
+
+  # maintenance
+  cleanup-merged = "!git fetch && git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+  # distribution
+  export = archive --format zip --output
+
+  # dangerous (explicit)
+  enforce = push --force-with-lease
+
+# ─────────────────────────────────────────────
+# Git LFS
+# ─────────────────────────────────────────────
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+# ─────────────────────────────────────────────
+# HTTP
+# ─────────────────────────────────────────────
 [http]
   sslVerify = true
-[pull]
-  rebase = false
-[rerere]
-  enabled = true
-[init]
-  defaultBranch = main
-[gpg]
-  program = /opt/homebrew/bin/gpg
-[includeIf "gitdir:~/code/"]
-  path = ~/dotfiles/work_variables/.gitconfig_work
+
+# ─────────────────────────────────────────────
+# Config local and personal
+# ─────────────────────────────────────────────
+[include]
+  path = ~/dotfiles/config/git/.gitconfig_local
+
+# ─────────────────────────────────────────────
+# Identity & signing
+# ─────────────────────────────────────────────
+# [user]
+#   signingkey = ~/.ssh/id_edXXXX.pub
+#
+# ─────────────────────────────────────────────
+# Conditional includes
+# ─────────────────────────────────────────────
+# [includeIf "gitdir:~/work/"]
+#   path = ~/dotfiles-work/.gitconfig_work
