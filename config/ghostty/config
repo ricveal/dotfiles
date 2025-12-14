@@ -1,49 +1,120 @@
+# ==========================
+# General Settings
+# ==========================
+# Auto-update disabled
 auto-update = off
+
+# Treat Option as Alt on macOS
 macos-option-as-alt = left
 
-# Theme settings
-theme = dark:TokyoNight,light:Catppuccin Latte
-bold-is-bright = true
-macos-titlebar-style = hidden
-
-# window settings
-window-decoration = true
-window-theme = auto
-window-padding-color = background
-window-padding-x = 8
-window-colorspace = "display-p3"
-cursor-invert-fg-bg = true
-
-shell-integration-features = cursor, sudo, title
-
-copy-on-select = clipboard
+# Don't ask for confirmation when closing a terminal
 confirm-close-surface = false
 
-# Mouse settings
-mouse-hide-while-typing = true
+# ==========================
+# Theme Settings
+# ==========================
+# Theme settings: dark/light variants
+theme = dark:TokyoNight,light:Catppuccin Latte
 
-# Font settings
-font-family = "Monaspace Neon Regular"
+# Bold text appears brighter
+bold-is-bright = true
+
+# macOS titlebar style
+macos-titlebar-style = hidden
+
+# Enable window decorations
+window-decoration = true
+
+# Window theme mode
+window-theme = auto
+
+# Window padding color
+window-padding-color = background
+
+# Horizontal window padding
+window-padding-x = 8
+
+# Use Display-P3 color gamut on macOS; on other systems, the default sRGB is used
+window-colorspace = display-p3
+
+# Invert cursor foreground/background for visibility
+cursor-invert-fg-bg = true
+
+# ==========================
+# Font Settings
+# ==========================
+# Primary font with fallback for Linux
+font-family = "Monaspace Neon Regular, CaskaydiaMono Nerd Font"
+
+# Italic font variant
 font-family-italic = "Monaspace Radon Var Regular Italic"
+
+# Bold Italic font variant
 font-family-bold-italic = "Monaspace Radon Var Bold Italic"
-font-size = 16
+
+# Font size
+font-size = 12
+
+# Enable ligatures
 font-feature = +liga
+
+# Cursor style
 cursor-style = block
 
+# ==========================
+# Clipboard Settings
+# ==========================
+# Allow reading from clipboard
 clipboard-read = allow
+
+# Allow writing to clipboard
 clipboard-write = allow
+
+# Trim trailing spaces when copying
 clipboard-trim-trailing-spaces = true
 
-# Split keybindings
-# These are similar to tmux, but with the prefix being cmd+s
-keybind = cmd+s>period=new_split:right
-keybind = cmd+s>-=new_split:down
+# Copy selection to clipboard automatically
+copy-on-select = clipboard
 
-keybind = cmd+s>ctrl+l=next_tab
-keybind = cmd+s>ctrl+h=previous_tab
+# ==========================
+# Mouse Settings
+# ==========================
+# Hide mouse while typing
+mouse-hide-while-typing = true
 
-keybind = cmd+s>j=goto_split:bottom
-keybind = cmd+s>k=goto_split:top
-keybind = cmd+s>h=goto_split:left
-keybind = cmd+s>l=goto_split:right
+# Slow down mouse scrolling for better control
+mouse-scroll-multiplier = 0.95
+
+# ==========================
+# Shell Integration
+# ==========================
+# Enable advanced shell features including SSH environment
+shell-integration-features = cursor, sudo, title, ssh-env
+
+# ==========================
+# Keybindings (Splits and Tabs)
+# Prefix: super+control+alt (works on macOS & Linux)
+# ==========================
+# Split Management
+keybind = super+control+alt+period=new_split:right
+keybind = super+control+alt+-=new_split:down
+
+# Close the currently focused split
+keybind = super+control+alt+x=close_surface
+
+# Move Between Splits
+keybind = super+control+alt+j=goto_split:bottom
+keybind = super+control+alt+k=goto_split:top
+keybind = super+control+alt+h=goto_split:left
+keybind = super+control+alt+l=goto_split:right
+
+# Tab Navigation
+keybind = super+control+alt+shift+l=next_tab
+keybind = super+control+alt+shift+h=previous_tab
+
+# Send Text / Commands
 keybind = shift+enter=text:\x1b\r
+
+# Classic Copy/Paste
+keybind = shift+insert=paste_from_clipboard
+keybind = control+insert=copy_to_clipboard
