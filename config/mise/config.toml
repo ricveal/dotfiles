@@ -1,6 +1,7 @@
 [tools]
 java = "lts"
 node = "lts"
+python = "latest"
 
 [settings]
 experimental = true
