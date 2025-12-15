@@ -118,3 +118,8 @@ keybind = shift+enter=text:\x1b\r
 # Classic Copy/Paste
 keybind = shift+insert=paste_from_clipboard
 keybind = control+insert=copy_to_clipboard
+
+# ==========================
+# Additional configs
+# ==========================
+config-file = ?~/dotfiles/config/ghostty/mac
